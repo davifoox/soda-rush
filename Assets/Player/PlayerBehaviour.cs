@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
 {
-    public float speed = 1000f;
+    public float rotationSpeed = 500f;
     Vector3 accelerometerVector = new Vector3();
     Rigidbody2D rb;
-    public float thrust = 0.1f;
+    public float thrust = 5f;
 
     private void Start()
     {
@@ -32,6 +32,6 @@ public class PlayerBehaviour : MonoBehaviour
     {
         //Debug.Log(rotationVector.x);
         //transform.Rotate(new Vector3(0, 0, -rotationVector.x) * speed * Time.deltaTime);
-        rb.rotation -= rotationVector.x * speed * Time.deltaTime;
+        rb.rotation -= rotationVector.x * rotationSpeed * Time.deltaTime;
     }
 }
