@@ -8,6 +8,7 @@ public class CameraFollow : MonoBehaviour
 
     void Update()
     {
-        this.transform.position = new Vector3(0, target.position.y, this.transform.position.z);
+        if(target.position.y > this.transform.position.y)
+            this.transform.position = new Vector3(0, target.position.y, this.transform.position.z);
     }
 }
