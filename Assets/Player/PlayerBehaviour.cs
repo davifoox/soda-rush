@@ -23,9 +23,8 @@ public class PlayerBehaviour : MonoBehaviour
     {
         RotatePlayer(accelerometerVector);
 
-        rb.AddForce(transform.up * thrust);
-        //como limitar velocidade dessa forma?
-        // Alternatively, specify the force mode, which is ForceMode2D.Force by default
+        //rb.AddForce(transform.up * thrust);
+        rb.velocity = new Vector2(0, thrust);
         //rb.AddForce(transform.up * thrust, ForceMode2D.Impulse);
     }
 
