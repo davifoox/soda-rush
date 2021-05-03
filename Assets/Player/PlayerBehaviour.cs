@@ -21,17 +21,38 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void FixedUpdate()
     {
-        RotatePlayer(accelerometerVector);
+        /*
+        if (SystemInfo.operatingSystem.Contains("Android"))
+            RotatePlayer(accelerometerVector);
+        else // if it's running on Windows
+        {
+            Vector2 inputVector;
+            if (Input.GetKey(KeyCode.LeftArrow))
+                inputVector = new Vector2(-1, 0);
+            else if (Input.GetKey(KeyCode.RightArrow))
+                inputVector = new Vector2(1, 0);
+            else
+                inputVector = new Vector2(0, 0);
 
-        //rb.AddForce(transform.up * thrust);
-        rb.velocity = new Vector2(0, thrust);
-        //rb.AddForce(transform.up * thrust, ForceMode2D.Impulse);
+            RotatePlayer(inputVector);
+        }
+        */
+
+        RotatePlayer(accelerometerVector);
+        Move();
     }
 
     public void RotatePlayer(Vector3 rotationVector)
     {
-        //Debug.Log(rotationVector.x);
-        //transform.Rotate(new Vector3(0, 0, -rotationVector.x) * speed * Time.deltaTime);
         rb.rotation -= rotationVector.x * rotationSpeed * Time.deltaTime;
+    }
+
+    void Move()
+    {
+        rb.velocity = transform.TransformDirection(new Vector2(0,thrust));
+        //rb.velocity = new Vector2(0, thrust);
+
+        //rb.AddForce(transform.up * thrust);
+        //rb.AddForce(transform.up * thrust, ForceMode2D.Impulse);
     }
 }
