@@ -14,7 +14,7 @@ public class CameraFollow : MonoBehaviour
     {
         if (target.position.y + offset > this.transform.position.y)
             this.transform.position = new Vector3(0, target.position.y + offset, this.transform.position.z);
-        else if (target.position.y + 5 < this.transform.position.y)
+        else if (target.position.y < this.transform.position.y - 5)
         {
             Debug.Log("Player out of Screen!");
             OnPlayerLefScreen();
