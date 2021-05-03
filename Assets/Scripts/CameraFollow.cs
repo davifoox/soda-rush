@@ -9,7 +9,9 @@ public class CameraFollow : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(target.position.y + offset > this.transform.position.y)
+        if (target.position.y + offset > this.transform.position.y)
             this.transform.position = new Vector3(0, target.position.y + offset, this.transform.position.z);
+        else
+            Debug.Log("Player out of Screen!");
     }
 }
