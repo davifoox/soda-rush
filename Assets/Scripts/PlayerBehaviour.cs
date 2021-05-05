@@ -73,6 +73,11 @@ public class PlayerBehaviour : MonoBehaviour
             thrust = 10f;
     }
 
+    void HitEnemy()
+    {
+        thrust = -5f;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == 9) // Mentos Layer
@@ -80,5 +85,13 @@ public class PlayerBehaviour : MonoBehaviour
             Debug.Log("Mentos!");
             SpeedUp();
         }
+
+        if (collision.gameObject.layer == 10) // Enemy Layer
+        {
+            Debug.Log("Enemy!");
+            HitEnemy();
+        }
     }
+
+
 }
