@@ -6,7 +6,6 @@ public class MentosBehaviour : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("AAAA");
         if (collision.gameObject.layer == 8) // Player Layer
         {
             Destroy(this.gameObject);
