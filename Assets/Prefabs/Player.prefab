@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6335305991948708761}
   - component: {fileID: 1280485866492042545}
   - component: {fileID: 3890132069186044915}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 954e564c26948dd4887d45df4b8703a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thrust: 5
 --- !u!212 &6335305991948708761
 SpriteRenderer:
   m_ObjectHideFlags: 0

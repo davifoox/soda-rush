@@ -69,11 +69,13 @@ public class PlayerBehaviour : MonoBehaviour
     void SpeedUp()
     {
         thrust += 5f;
+        if (thrust > 10f)
+            thrust = 10f;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == 8) // Mentos Layer
+        if (collision.gameObject.layer == 9) // Mentos Layer
         {
             Debug.Log("Mentos!");
             SpeedUp();
