@@ -18,6 +18,7 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         pauseButton.onClick.AddListener(() => { PauseGame(); });
+
     }
 
     private void OnEnable()

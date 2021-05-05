@@ -10,7 +10,7 @@ public class PlayerBehaviour : MonoBehaviour
     float rotationSpeed = 500f;
     public float thrust = 5f;
     float slowDownValue = 0.2f;
-    float mentosBoostValue = 500000f;
+    float mentosBoostValue = 5f;
 
     private void Start()
     {
@@ -68,7 +68,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     void SpeedUp()
     {
-        thrust += 5f;
+        thrust += mentosBoostValue;
         if (thrust > 10f)
             thrust = 10f;
     }

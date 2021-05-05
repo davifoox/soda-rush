@@ -6,10 +6,14 @@ using UnityEngine.UI;
 public class PauseMenuManager : MonoBehaviour
 {
     [SerializeField] Button resumeButton;
+    [SerializeField] Button configButton;
+    [SerializeField] Button exitButton;
 
     private void Start()
     {
         resumeButton.onClick.AddListener(() => { ResumeGame(); });
+        configButton.onClick.AddListener(() => { ConfigMenu(); });
+        exitButton.onClick.AddListener(() => { ExitGame(); });
     }
 
     private void OnEnable()
@@ -25,5 +29,15 @@ public class PauseMenuManager : MonoBehaviour
     void ResumeGame()
     {
         gameObject.SetActive(false);
+    }
+
+    void ConfigMenu()
+    {
+        Debug.Log("Config...");
+    }
+
+    void ExitGame()
+    {
+        Debug.Log("Exit...");
     }
 }
