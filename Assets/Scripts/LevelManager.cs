@@ -10,13 +10,14 @@ public class LevelManager : MonoBehaviour
     [SerializeField] PlayerBehaviour player;
     [SerializeField] Text scoreText;
     [SerializeField] Button pauseButton;
+    [SerializeField] Canvas uiCanvas;
+    [SerializeField] Canvas pauseMenuCanvas;
 
     float currentPlayerScore;
 
     private void Start()
     {
         pauseButton.onClick.AddListener(() => { PauseGame(); });
-
     }
 
     private void OnEnable()
@@ -52,6 +53,8 @@ public class LevelManager : MonoBehaviour
 
     void PauseGame()
     {
-        Debug.Log("PAUSE");
+        Debug.Log("Pausing");
+        //uiCanvas.gameObject.SetActive(false);
+        pauseMenuCanvas.gameObject.SetActive(true);
     }
 }
