@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class InitialMenuManager : MonoBehaviour
+public class MenuManager : MonoBehaviour
 {
     [SerializeField] Text highscoreText;
     [SerializeField] Button startButton;
@@ -18,6 +19,7 @@ public class InitialMenuManager : MonoBehaviour
 
     void StartGame()
     {
-        Debug.Log("START");
+        Debug.Log("Starting Game...");
+        SceneManager.LoadScene(1);
     }
 }
