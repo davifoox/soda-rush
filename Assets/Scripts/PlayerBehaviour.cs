@@ -8,7 +8,9 @@ public class PlayerBehaviour : MonoBehaviour
     Rigidbody2D rb;
 
     float rotationSpeed = 500f;
-    float thrust = 5f;
+    public float thrust = 5f;
+    float slowDownValue = 0.2f;
+    float mentosBoostValue = 500000f;
 
     private void Start()
     {
@@ -41,6 +43,7 @@ public class PlayerBehaviour : MonoBehaviour
 
         RotatePlayer(accelerometerVector);
         Move();
+        SlowDown();
     }
 
     public void RotatePlayer(Vector3 rotationVector)
@@ -55,5 +58,25 @@ public class PlayerBehaviour : MonoBehaviour
 
         //rb.AddForce(transform.up * thrust);
         //rb.AddForce(transform.up * thrust, ForceMode2D.Impulse);
+    }
+
+    void SlowDown()
+    {
+        if (thrust > 0)
+            thrust -= slowDownValue * Time.deltaTime;
+    }
+
+    void SpeedUp()
+    {
+        thrust += 5f;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 8) // Mentos Layer
+        {
+            Debug.Log("Mentos!");
+            SpeedUp();
+        }
     }
 }
