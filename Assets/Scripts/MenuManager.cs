@@ -15,11 +15,29 @@ public class MenuManager : MonoBehaviour
     private void Start()
     {
         startButton.onClick.AddListener(() => { StartGame(); });
+        configButton.onClick.AddListener(() => { ConfigMenu(); });
+        storeButton.onClick.AddListener(() => { StoreMenu(); });
+        creditsButton.onClick.AddListener(() => { CreditsMenu(); });
     }
 
     void StartGame()
     {
         Debug.Log("Starting Game...");
         SceneManager.LoadScene(1);
+    }
+
+    void ConfigMenu()
+    {
+        Debug.Log("Config Menu...");
+    }
+
+    void StoreMenu()
+    {
+        Debug.Log("Store Menu...");
+    }
+
+    void CreditsMenu()
+    {
+        Debug.Log("Credits Menu...");
     }
 }
