@@ -9,6 +9,7 @@ public class ParticlesFollow : MonoBehaviour
     void FixedUpdate()
     {
         transform.position = target.position;
-        transform.position = new Vector2(transform.position.x, transform.position.y - 0.5f);
+        transform.position = new Vector2(transform.position.x, transform.position.y - 0.2f);
+        transform.rotation = target.rotation;
     }
 }

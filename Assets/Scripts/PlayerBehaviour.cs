@@ -7,7 +7,7 @@ public class PlayerBehaviour : MonoBehaviour
     Vector3 accelerometerVector = new Vector3();
     Rigidbody2D rb;
 
-    float rotationSpeed = 500f;
+    float rotationSpeed = 400f;
     public float thrust = 5f;
     float slowDownValue = 0.2f;
     float mentosBoostValue = 5f;
