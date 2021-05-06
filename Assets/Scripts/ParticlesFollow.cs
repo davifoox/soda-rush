@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class ParticlesFollow : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] Transform target;
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        transform.position = target.position;
+        transform.position = new Vector2(transform.position.x, transform.position.y - 0.5f);
     }
 }
