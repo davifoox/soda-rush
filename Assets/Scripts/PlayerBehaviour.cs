@@ -68,6 +68,9 @@ public class PlayerBehaviour : MonoBehaviour
 
     void SpeedUp()
     {
+        //Camera.main.transform.DOComplete();
+        //Camera.main.transform.DOShakePosition(.2f, .5f, 14, 90, false, true);
+        FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
         thrust += mentosBoostValue;
         if (thrust > 10f)
             thrust = 10f;
