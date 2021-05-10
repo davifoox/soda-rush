@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
+
 
 public class PlayerBehaviour : MonoBehaviour
 {
@@ -68,8 +70,8 @@ public class PlayerBehaviour : MonoBehaviour
 
     void SpeedUp()
     {
-        //Camera.main.transform.DOComplete();
-        //Camera.main.transform.DOShakePosition(.2f, .5f, 14, 90, false, true);
+        //Camera.main.DOComplete();
+        //Camera.main.DOShakePosition(.2f, .5f, 14, 90, false);
         FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
         thrust += mentosBoostValue;
         if (thrust > 10f)
