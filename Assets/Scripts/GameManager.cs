@@ -21,8 +21,20 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void SaveHighscore()
+    public void SaveHighscore(int currentPlayerScore)
     {
+        if(!PlayerPrefs.HasKey("highscore"))
+        {
+            PlayerPrefs.SetInt("highscore", currentPlayerScore);
+        }
+        else if(PlayerPrefs.GetInt("highscore") < currentPlayerScore)
+        {
+            PlayerPrefs.SetInt("highscore", currentPlayerScore);
+        }
+    }
 
+    public int LoadHighscore()
+    {
+        return PlayerPrefs.GetInt("highscore");
     }
 }

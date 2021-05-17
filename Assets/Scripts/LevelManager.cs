@@ -23,12 +23,20 @@ public class LevelManager : MonoBehaviour
 
     private void OnEnable()
     {
+        cameraFollow.OnPlayerLefScreen += SaveHighscore;
         cameraFollow.OnPlayerLefScreen += ReloadCurrentScene;
     }
 
     private void OnDisable()
     {
+        cameraFollow.OnPlayerLefScreen -= SaveHighscore;
         cameraFollow.OnPlayerLefScreen -= ReloadCurrentScene;
+    }
+
+    void SaveHighscore()
+    {
+        Debug.Log("Saving score...");
+        GameManager.Instance.SaveHighscore(Mathf.CeilToInt(currentPlayerScore));
     }
 
     void ReloadCurrentScene()

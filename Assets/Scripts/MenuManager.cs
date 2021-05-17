@@ -18,6 +18,11 @@ public class MenuManager : MonoBehaviour
         configButton.onClick.AddListener(() => { ConfigMenu(); });
         storeButton.onClick.AddListener(() => { StoreMenu(); });
         creditsButton.onClick.AddListener(() => { CreditsMenu(); });
+
+        if (PlayerPrefs.HasKey("highscore"))
+        {
+            highscoreText.text = "Highscore: " + (PlayerPrefs.GetInt("highscore").ToString());
+        }
     }
 
     void StartGame()
