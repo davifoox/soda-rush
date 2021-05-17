@@ -10,6 +10,8 @@ public class CameraFollow : MonoBehaviour
     public delegate void PlayerLeftScreen();
     public event PlayerLeftScreen OnPlayerLefScreen;
 
+    private float screenHorizontalLimit = 3.3f;
+
     void FixedUpdate()
     {
         if (target.position.y + offset > this.transform.position.y)
@@ -19,7 +21,22 @@ public class CameraFollow : MonoBehaviour
             Debug.Log("Player out of Screen!");
             OnPlayerLefScreen();
         }
+
+        MirrorPosition();
         //Debug.Log("Player posiiton: " + target.transform.position.y);
         //Debug.Log("Camera posiiton: " + this.transform.position.y);
+    }
+
+    void MirrorPosition()
+    {
+
+        if (target.transform.position.x > screenHorizontalLimit)
+        {
+            target.transform.position = new Vector2(-screenHorizontalLimit, target.transform.position.y);
+        }
+        else if(target.transform.position.x < -screenHorizontalLimit)
+        {
+            target.transform.position = new Vector2(screenHorizontalLimit, target.transform.position.y);
+        }
     }
 }
