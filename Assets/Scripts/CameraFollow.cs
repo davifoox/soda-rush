@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class CameraFollow : MonoBehaviour
 {
     [SerializeField] PlayerBehaviour player;
+    [SerializeField] Transform cameraHolder;
     int offset = 2;
 
     public delegate void PlayerLeftScreen();
@@ -12,9 +14,9 @@ public class CameraFollow : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (player.transform.position.y + offset > this.transform.position.y)
-            this.transform.position = new Vector3(0, player.transform.position.y + offset, this.transform.position.z);
-        else if (player.transform.position.y < this.transform.position.y - 5)
+        if (player.transform.position.y + offset > cameraHolder.transform.position.y)
+            cameraHolder.transform.position = new Vector3(0, player.transform.position.y + offset, cameraHolder.transform.position.z);
+        else if (player.transform.position.y < cameraHolder.transform.position.y - 5)
         {
             Debug.Log("Player out of Screen!");
             OnPlayerLefScreen();
@@ -37,6 +39,8 @@ public class CameraFollow : MonoBehaviour
 
     void ShakeCamera()
     {
+        Camera.main.DOComplete();
+        Camera.main.transform.DOShakePosition(2f, .25f, 50, 90, false);
         Debug.Log("Shaking Camera...");
     }
 }
