@@ -20,4 +20,9 @@ public class GameManager : MonoBehaviour
             _instance = this;
         }
     }
+
+    void SaveHighscore()
+    {
+
+    }
 }
