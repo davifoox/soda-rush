@@ -12,7 +12,7 @@ public class Parallax : MonoBehaviour
     private void Start()
     {
         startPos = transform.position.y;
-        lenght = GetComponent<SpriteRenderer>().bounds.size.y;
+        lenght = GetComponent<SpriteRenderer>().bounds.size.y * 0.78f; // 0.78f é o quanto o sprite de bg foi escalado pra ficar exatamente igual a camera
         Debug.Log("LENGHT: " + lenght);
     }
 
@@ -23,7 +23,7 @@ public class Parallax : MonoBehaviour
 
         transform.position = new Vector3(transform.position.x, startPos + dist, transform.position.z);
 
-        if (temp > startPos + lenght) startPos += lenght;
-        else if (temp < startPos - lenght) startPos -= lenght;
+        if (temp > startPos + lenght - 5) startPos += lenght; //- 5 é por causa do offset da latinha com a camera (não fica exatamente no centro)
+        else if (temp < startPos - lenght + 5) startPos -= lenght;
     }
 }
