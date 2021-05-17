@@ -26,13 +26,13 @@ public class ParticlesFollow : MonoBehaviour
     {
         if (target.transform.position.x > screenHorizontalLimit)
         {
-            StopAllCoroutines();
+            StopCoroutine("PauseParticles");
             StartCoroutine("PauseParticles");
             target.transform.position = new Vector2(-screenHorizontalLimit, target.transform.position.y);
         }
         else if (target.transform.position.x < -screenHorizontalLimit)
         {
-            StopAllCoroutines();
+            StopCoroutine("PauseParticles");
             StartCoroutine("PauseParticles");
             target.transform.position = new Vector2(screenHorizontalLimit, target.transform.position.y);
         }
@@ -41,7 +41,7 @@ public class ParticlesFollow : MonoBehaviour
     IEnumerator PauseParticles()
     {
         particleSystem.Pause();
-        yield return new WaitForSeconds(0.05f);
+        yield return new WaitForSeconds(0.1f);
         particleSystem.Play();
     }
 }
