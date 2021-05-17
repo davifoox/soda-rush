@@ -14,6 +14,11 @@ public class PlayerBehaviour : MonoBehaviour
     float slowDownValue = 0.2f;
     float mentosBoostValue = 5f;
 
+    private float screenHorizontalLimit = 3.3f;
+
+    public delegate void PlayerSpeedUp();
+    public event PlayerSpeedUp OnPlayerSpeedUp;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -45,6 +50,7 @@ public class PlayerBehaviour : MonoBehaviour
 
         RotatePlayer(accelerometerVector);
         Move();
+        MirrorPosition();
         SlowDown();
     }
 
@@ -71,7 +77,8 @@ public class PlayerBehaviour : MonoBehaviour
     void SpeedUp()
     {
         //Camera.main.DOComplete();
-        //Camera.main.DOShakePosition(.2f, .5f, 14, 90, false);
+        //Camera.main.transform.DOShakePosition(.2f, .5f, 14, 90, false);
+        OnPlayerSpeedUp();
         FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
         thrust += mentosBoostValue;
         if (thrust > 10f)
@@ -98,5 +105,16 @@ public class PlayerBehaviour : MonoBehaviour
         }
     }
 
+    void MirrorPosition()
+    {
 
+        if (transform.position.x > screenHorizontalLimit)
+        {
+            transform.position = new Vector2(-screenHorizontalLimit, transform.position.y);
+        }
+        else if (transform.position.x < -screenHorizontalLimit)
+        {
+            transform.position = new Vector2(screenHorizontalLimit, transform.position.y);
+        }
+    }
 }
