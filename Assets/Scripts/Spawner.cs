@@ -23,7 +23,12 @@ public class Spawner : MonoBehaviour
 
     IEnumerator SpawnerTimer()
     {
-        SpawnPowerUp(0f);
+        float randomXPos = Random.Range(-3, 3);
+        float randomNumber = Random.Range(0, 3);
+
+        if (randomNumber < 2)   SpawnPowerUp(0f);
+        else                    SpawnObstacle(randomXPos);
+
         yield return new WaitForSeconds(2f);
         StartCoroutine("SpawnerTimer");
     }
