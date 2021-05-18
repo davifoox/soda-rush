@@ -18,7 +18,6 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         pauseButton.onClick.AddListener(() => { PauseGame(); });
-
     }
 
     private void OnEnable()
@@ -35,13 +34,13 @@ public class LevelManager : MonoBehaviour
 
     void SaveHighscore()
     {
-        Debug.Log("Saving score...");
+        //Debug.Log("Saving score...");
         GameManager.Instance.SaveHighscore(Mathf.CeilToInt(currentPlayerScore));
     }
 
     void ReloadCurrentScene()
     {
-        Debug.Log("Reloading current scene");
+        //Debug.Log("Reloading current scene");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

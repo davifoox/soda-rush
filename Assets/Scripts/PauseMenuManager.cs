@@ -39,7 +39,7 @@ public class PauseMenuManager : MonoBehaviour
 
     void ExitGame()
     {
-        Debug.Log("Exit...");
+        //Debug.Log("Exit...");
         SceneManager.LoadScene(0);
     }
 }

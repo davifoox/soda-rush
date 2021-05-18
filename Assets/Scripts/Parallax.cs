@@ -13,7 +13,6 @@ public class Parallax : MonoBehaviour
     {
         startPos = transform.position.y;
         lenght = GetComponent<SpriteRenderer>().bounds.size.y;// * 0.78f; // 0.78f é o quanto o sprite de bg foi escalado pra ficar exatamente igual a camera
-        Debug.Log("LENGHT: " + lenght);
     }
 
     private void Update()

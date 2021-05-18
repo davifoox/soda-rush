@@ -5,12 +5,12 @@ using UnityEngine;
 public class ParticlesFollow : MonoBehaviour
 {
     [SerializeField] Transform target;
-    [SerializeField] ParticleSystem particleSystem;
+    [SerializeField] ParticleSystem particle;
     private float screenHorizontalLimit = 3.3f;
 
     private void Start()
     {
-        particleSystem = GetComponent<ParticleSystem>();
+        particle = GetComponent<ParticleSystem>();
     }
 
     void FixedUpdate()
@@ -40,8 +40,8 @@ public class ParticlesFollow : MonoBehaviour
 
     IEnumerator PauseParticles()
     {
-        particleSystem.Pause();
+        particle.Pause();
         yield return new WaitForSeconds(0.1f);
-        particleSystem.Play();
+        particle.Play();
     }
 }

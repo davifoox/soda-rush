@@ -30,23 +30,6 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void FixedUpdate()
     {
-        /*
-        if (SystemInfo.operatingSystem.Contains("Android"))
-            RotatePlayer(accelerometerVector);
-        else // if it's running on Windows
-        {
-            Vector2 inputVector;
-            if (Input.GetKey(KeyCode.LeftArrow))
-                inputVector = new Vector2(-1, 0);
-            else if (Input.GetKey(KeyCode.RightArrow))
-                inputVector = new Vector2(1, 0);
-            else
-                inputVector = new Vector2(0, 0);
-
-            RotatePlayer(inputVector);
-        }
-        */
-
         RotatePlayer(accelerometerVector);
         Move();
         MirrorPosition();
@@ -61,10 +44,6 @@ public class PlayerBehaviour : MonoBehaviour
     void Move()
     {
         rb.velocity = transform.TransformDirection(new Vector2(0,thrust));
-        //rb.velocity = new Vector2(0, thrust);
-
-        //rb.AddForce(transform.up * thrust);
-        //rb.AddForce(transform.up * thrust, ForceMode2D.Impulse);
     }
 
     void SlowDown()
@@ -91,20 +70,19 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (collision.gameObject.layer == 9) // Mentos Layer
         {
-            Debug.Log("Mentos!");
+            //Debug.Log("Mentos!");
             SpeedUp();
         }
 
         if (collision.gameObject.layer == 10) // Enemy Layer
         {
-            Debug.Log("Enemy!");
+            //Debug.Log("Enemy!");
             HitEnemy();
         }
     }
 
     void MirrorPosition()
     {
-
         if (transform.position.x > screenHorizontalLimit)
         {
             transform.position = new Vector2(-screenHorizontalLimit, transform.position.y);
