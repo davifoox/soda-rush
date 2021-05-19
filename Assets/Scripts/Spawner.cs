@@ -40,6 +40,17 @@ public class Spawner : MonoBehaviour
 
     void SpawnObstacle(float xPos)
     {
-        Instantiate(enemy, new Vector3(xPos, transform.position.y, 0), Quaternion.identity);
+        if (xPos > 0)
+        {
+            xPos = 1.6f;
+            var newEnemy = Instantiate(enemy, new Vector3(xPos, transform.position.y, 0), Quaternion.identity);
+        }
+        else 
+        { 
+            xPos = -1.6f;
+            var newEnemy = Instantiate(enemy, new Vector3(xPos, transform.position.y, 0), Quaternion.identity);
+            newEnemy.transform.localScale = new Vector2(newEnemy.transform.localScale.x * -1, newEnemy.transform.localScale.y);
+        }
+
     }
 }
