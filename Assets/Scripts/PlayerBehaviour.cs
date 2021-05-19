@@ -10,7 +10,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     float rotationSpeed = 400f;
     public float thrust = 5f;
-    float slowDownValue = 0.2f;
+    float slowDownValue = 0.3f;
     float mentosBoostValue = 5f;
 
     private float screenHorizontalLimit = 3.3f;
