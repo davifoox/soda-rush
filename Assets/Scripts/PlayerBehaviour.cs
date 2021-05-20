@@ -8,10 +8,11 @@ public class PlayerBehaviour : MonoBehaviour
     Vector3 accelerometerVector = new Vector3();
     Rigidbody2D rb;
 
-    float rotationSpeed = 400f;
     public float thrust = 5f;
     float slowDownValue = 0.3f;
-    float mentosBoostValue = 5f;
+    float rotationSpeed = 400f;
+
+    float mentosBoostValue = 5f; //isso aqui tem que ir pro próprio mentos
 
     private float screenHorizontalLimit = 3.3f;
 
@@ -34,6 +35,8 @@ public class PlayerBehaviour : MonoBehaviour
         Move();
         MirrorPosition();
         SlowDown();
+
+        //Debug.Log(accelerometerVector.x);
     }
 
     public void RotatePlayer(Vector3 rotationVector)
