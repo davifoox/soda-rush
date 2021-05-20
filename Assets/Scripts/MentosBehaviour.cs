@@ -5,6 +5,11 @@ using DG.Tweening;
 
 public class MentosBehaviour : MonoBehaviour
 {
+    private void Start()
+    {
+        Destroy(this.gameObject, 10f);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == 8) // Player Layer
