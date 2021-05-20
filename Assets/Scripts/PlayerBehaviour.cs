@@ -11,6 +11,8 @@ public class PlayerBehaviour : MonoBehaviour
     public float thrust = 5f;
     float slowDownValue = 0.3f;
     float rotationSpeed = 350f;
+    float timeToCenterRotation = 0.25f;
+    float timeLeftToCenterRotation;
 
     float mentosBoostValue = 5f; //isso aqui tem que ir pro próprio mentos
 
@@ -31,22 +33,35 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void FixedUpdate()
     {
-        RotatePlayer(accelerometerVector);
+        RotatePlayer();
         Move();
         MirrorPosition();
         SlowDown();
 
+        Debug.Log(rb.rotation);
         //Debug.Log(accelerometerVector.x);
     }
 
-    public void RotatePlayer(Vector3 rotationVector)
+    public void RotatePlayer()
     {
-        float normalRotationLimit = 10f;
-        if (transform.rotation.z < normalRotationLimit && transform.rotation.z > -normalRotationLimit)
-            rb.rotation -= rotationVector.x * rotationSpeed * Time.deltaTime;
-        //else
-        //    rb.rotation -= rotationVector.x * (rotationSpeed - 100) * Time.deltaTime;
-
+        float centerRegion = 0.1f;
+        if (accelerometerVector.x < centerRegion && accelerometerVector.x > -centerRegion)
+        {
+            timeLeftToCenterRotation -= Time.deltaTime;
+            if (timeLeftToCenterRotation < 0)
+            {
+                //Vector3 currentAngle = transform.eulerAngles;
+                //Mathf.LerpAngle(currentAngle.z, 0f, Time.deltaTime);
+                rb.rotation = Mathf.Lerp(rb.rotation, 0f, 0.1f);
+            }
+            else
+                rb.rotation -= accelerometerVector.x * rotationSpeed * Time.deltaTime;
+        }
+        else
+        {
+            timeLeftToCenterRotation = timeToCenterRotation;
+            rb.rotation -= accelerometerVector.x * rotationSpeed * Time.deltaTime;
+        }
     }
 
     void Move()
