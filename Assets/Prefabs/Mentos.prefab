@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4594718844857813424}
   - component: {fileID: 2555224455968549358}
+  - component: {fileID: 3952422078415558695}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -92,6 +93,25 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!95 &3952422078415558695
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 474418219843819116}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f4b42fe931c7b3344b847fa9e00b6416, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8424114897179362483
 GameObject:
   m_ObjectHideFlags: 0
