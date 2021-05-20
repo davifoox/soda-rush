@@ -23,6 +23,8 @@ public class PlayerBehaviour : MonoBehaviour
     public delegate void PlayerSpeedUp();
     public event PlayerSpeedUp OnPlayerSpeedUp;
 
+    public Transform pivot;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
