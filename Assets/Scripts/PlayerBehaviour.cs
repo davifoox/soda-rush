@@ -10,7 +10,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     public float thrust = 5f;
     float slowDownValue = 0.3f;
-    float rotationSpeed = 300f;
+    float rotationSpeed = 350f;
 
     float mentosBoostValue = 5f; //isso aqui tem que ir pro próprio mentos
 
@@ -41,11 +41,11 @@ public class PlayerBehaviour : MonoBehaviour
 
     public void RotatePlayer(Vector3 rotationVector)
     {
-        float fastRotationLimit = 10f;
-        if (transform.rotation.z < fastRotationLimit && transform.rotation.z > -fastRotationLimit)
+        float normalRotationLimit = 10f;
+        if (transform.rotation.z < normalRotationLimit && transform.rotation.z > -normalRotationLimit)
             rb.rotation -= rotationVector.x * rotationSpeed * Time.deltaTime;
-        else
-            rb.rotation -= rotationVector.x * (rotationSpeed - 100) * Time.deltaTime;
+        //else
+        //    rb.rotation -= rotationVector.x * (rotationSpeed - 100) * Time.deltaTime;
 
     }
 
