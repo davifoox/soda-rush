@@ -10,7 +10,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     public float thrust = 5f;
     float slowDownValue = 0.2f;
-    float rotationSpeed = 5f;
+    float rotationSpeed = 1f;
     float maxThrustSpeed = 8f;
 
     float timeToCenterRotation = 0.5f;
@@ -58,17 +58,19 @@ public class PlayerBehaviour : MonoBehaviour
                 Quaternion centeredRotation = new Quaternion(transform.rotation.x, transform.rotation.y, 0f, 1f);
                 transform.rotation = Quaternion.Lerp(transform.rotation, centeredRotation, Time.time * centerForce);
             }
-            else
+            else //ROTATE
             {
                 //rb.rotation -= accelerometerVector.x * rotationSpeed * Time.deltaTime;
-                transform.rotation = new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z - (rotationSpeed * accelerometerVector.x * Time.deltaTime), 1f);
+                Quaternion newRotation = Quaternion.Lerp(transform.rotation, new Quaternion(transform.rotation.x, transform.rotation.y, -(rotationSpeed * accelerometerVector.x), 1f), 1f);
+                transform.rotation = newRotation;
             }
         }
-        else
+        else //ROTATE
         {
             timeLeftToCenterRotation = timeToCenterRotation;
             //rb.rotation -= accelerometerVector.x * rotationSpeed * Time.deltaTime;
-            transform.rotation = new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z - (rotationSpeed * accelerometerVector.x * Time.deltaTime), 1f);
+            Quaternion newRotation = Quaternion.Lerp(transform.rotation, new Quaternion(transform.rotation.x, transform.rotation.y, -(rotationSpeed * accelerometerVector.x), 1f), 1f);
+            transform.rotation = newRotation;
         }
     }
 
