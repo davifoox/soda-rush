@@ -24,18 +24,27 @@ public class Spawner : MonoBehaviour
     IEnumerator SpawnerTimer()
     {
         float randomXPos = Random.Range(-3, 3);
-        float randomNumber = Random.Range(0, 3);
+        float randomNumber = Random.Range(0, 4);
 
-        if (randomNumber < 2)   SpawnPowerUp(0f);
+        if (randomNumber < 2)   SpawnPowerUp();
         else                    SpawnObstacle(randomXPos);
 
         yield return new WaitForSeconds(2f);
         StartCoroutine("SpawnerTimer");
     }
 
-    void SpawnPowerUp(float xPos)
+    void SpawnPowerUp()
     {
-        Instantiate(mentos, new Vector3(xPos, transform.position.y, 0), Quaternion.identity);
+        float randomPos;
+        int randomNumber = Random.Range(1, 4);
+        if (randomNumber == 1)
+            randomPos = -1.5f;
+        else if (randomNumber == 2)
+            randomPos = 1.5f;
+        else
+            randomPos = 0f;
+
+        Instantiate(mentos, new Vector3(randomPos, transform.position.y, 0), Quaternion.identity);
     }
 
     void SpawnObstacle(float xPos)
