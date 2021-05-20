@@ -38,7 +38,7 @@ public class PlayerBehaviour : MonoBehaviour
         MirrorPosition();
         SlowDown();
 
-        Debug.Log(rb.rotation);
+        //Debug.Log(rb.rotation);
         //Debug.Log(accelerometerVector.x);
     }
 
@@ -66,7 +66,8 @@ public class PlayerBehaviour : MonoBehaviour
 
     void Move()
     {
-        rb.velocity = transform.TransformDirection(new Vector2(0, thrust));
+        //rb.velocity = transform.TransformDirection(new Vector2(0, thrust));
+        transform.Translate(Vector3.up * thrust * Time.deltaTime);
     }
 
     void SlowDown()
