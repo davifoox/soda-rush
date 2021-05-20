@@ -50,6 +50,9 @@ public class PlayerBehaviour : MonoBehaviour
     {
         float centerRegion = 0.1f;
         float centerForce = 0.005f;
+        Quaternion newRotation = Quaternion.Lerp(transform.rotation, new Quaternion(transform.rotation.x, transform.rotation.y, -(rotationSpeed * accelerometerVector.x), 1f), 1f);
+        transform.rotation = newRotation;
+        /*
         if (accelerometerVector.x < centerRegion && accelerometerVector.x > -centerRegion)
         {
             timeLeftToCenterRotation -= Time.deltaTime;
@@ -74,6 +77,7 @@ public class PlayerBehaviour : MonoBehaviour
             Quaternion newRotation = Quaternion.Lerp(transform.rotation, new Quaternion(transform.rotation.x, transform.rotation.y, -(rotationSpeed * accelerometerVector.x), 1f), 1f);
             transform.rotation = newRotation;
         }
+        */
     }
 
     void Move()
