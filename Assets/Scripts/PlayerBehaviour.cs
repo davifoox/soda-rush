@@ -10,7 +10,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     public float thrust = 5f;
     float slowDownValue = 0.3f;
-    float rotationSpeed = 350f;
+    float rotationSpeed = 5f;
     float timeToCenterRotation = 0.25f;
     float timeLeftToCenterRotation;
 
@@ -50,17 +50,21 @@ public class PlayerBehaviour : MonoBehaviour
             timeLeftToCenterRotation -= Time.deltaTime;
             if (timeLeftToCenterRotation < 0)
             {
-                //Vector3 currentAngle = transform.eulerAngles;
-                //Mathf.LerpAngle(currentAngle.z, 0f, Time.deltaTime);
-                rb.rotation = Mathf.Lerp(rb.rotation, 0f, 0.1f);
+                //rb.rotation = Mathf.Lerp(rb.rotation, 0f, 0.1f);
+                transform.rotation = new Quaternion(transform.rotation.x, transform.rotation.y, 0f, 1f);
             }
             else
-                rb.rotation -= accelerometerVector.x * rotationSpeed * Time.deltaTime;
+            {
+                //rb.rotation -= accelerometerVector.x * rotationSpeed * Time.deltaTime;
+                transform.rotation = new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z - (rotationSpeed * accelerometerVector.x * Time.deltaTime), 1f);
+            }
         }
         else
         {
             timeLeftToCenterRotation = timeToCenterRotation;
-            rb.rotation -= accelerometerVector.x * rotationSpeed * Time.deltaTime;
+            //rb.rotation -= accelerometerVector.x * rotationSpeed * Time.deltaTime;
+            transform.rotation = new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z - (rotationSpeed * accelerometerVector.x * Time.deltaTime), 1f);
+
         }
     }
 
