@@ -9,12 +9,12 @@ public class PlayerBehaviour : MonoBehaviour
     Rigidbody2D rb;
 
     public float thrust = 5f;
-    float slowDownValue = 0.3f;
+    float slowDownValue = 0.2f;
     float rotationSpeed = 5f;
     float timeToCenterRotation = 0.25f;
     float timeLeftToCenterRotation;
 
-    float mentosBoostValue = 5f; //isso aqui tem que ir pro próprio mentos
+    float mentosBoostValue = 2f; //isso aqui tem que ir pro próprio mentos
 
     private float screenHorizontalLimit = 3.3f;
 
@@ -45,13 +45,16 @@ public class PlayerBehaviour : MonoBehaviour
     public void RotatePlayer()
     {
         float centerRegion = 0.1f;
+        float centerForce = 0.001f;
         if (accelerometerVector.x < centerRegion && accelerometerVector.x > -centerRegion)
         {
             timeLeftToCenterRotation -= Time.deltaTime;
-            if (timeLeftToCenterRotation < 0)
+            if (timeLeftToCenterRotation < 0) //SNAP
             {
                 //rb.rotation = Mathf.Lerp(rb.rotation, 0f, 0.1f);
-                transform.rotation = new Quaternion(transform.rotation.x, transform.rotation.y, 0f, 1f);
+                //transform.rotation = new Quaternion(transform.rotation.x, transform.rotation.y, 0f, 1f);
+                Quaternion centeredRotation = new Quaternion(transform.rotation.x, transform.rotation.y, 0f, 1f);
+                transform.rotation = Quaternion.Lerp(transform.rotation, centeredRotation, Time.time * centerForce);
             }
             else
             {
@@ -85,8 +88,8 @@ public class PlayerBehaviour : MonoBehaviour
         OnPlayerSpeedUp();
         FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
         thrust += mentosBoostValue;
-        if (thrust > 10f)
-            thrust = 10f;
+        if (thrust > 6f)
+            thrust = 6f;
     }
 
     void HitEnemy()
