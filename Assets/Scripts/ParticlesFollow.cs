@@ -30,13 +30,11 @@ public class ParticlesFollow : MonoBehaviour
         {
             StopCoroutine("PauseParticles");
             StartCoroutine("PauseParticles");
-            target.transform.position = new Vector2(-screenHorizontalLimit, target.transform.position.y);
         }
         else if (target.transform.position.x < -screenHorizontalLimit)
         {
             StopCoroutine("PauseParticles");
             StartCoroutine("PauseParticles");
-            target.transform.position = new Vector2(screenHorizontalLimit, target.transform.position.y);
         }
     }
 
