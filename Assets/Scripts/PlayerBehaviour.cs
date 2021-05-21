@@ -12,6 +12,7 @@ public class PlayerBehaviour : MonoBehaviour
     float slowDownValue = 0.2f;
     float rotationSpeed = 1f;
     float maxThrustSpeed = 8f;
+    float gravity = 10f;
 
     float timeToCenterRotation = 0.5f;
     float timeLeftToCenterRotation;
@@ -131,5 +132,10 @@ public class PlayerBehaviour : MonoBehaviour
         {
             transform.position = new Vector2(screenHorizontalLimit, transform.position.y);
         }
+    }
+
+    void ApplyGravity()
+    {
+
     }
 }
