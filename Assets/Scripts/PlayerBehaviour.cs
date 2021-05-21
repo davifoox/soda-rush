@@ -7,9 +7,9 @@ public class PlayerBehaviour : MonoBehaviour
 {
     Vector3 accelerometerVector = new Vector3();
 
-    public float thrust = 5f;
+    float thrust = 15f;
     float slowDownValue = 0.2f;
-    float maxThrustSpeed = 8f;
+    float maxThrustSpeed = 18f;
     float gravity = 10f;
 
     private float screenHorizontalLimit = 3.3f;
@@ -20,7 +20,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     public Transform pivot;
 
-    float mentosBoostValue = 2f; //isso aqui tem que ir pro próprio mentos
+    float mentosBoostValue = 5f; //isso aqui tem que ir pro próprio mentos
 
 
     void Update()
@@ -38,7 +38,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     public void RotatePlayer()
     {
-        Quaternion newRotation = Quaternion.Lerp (
+        Quaternion newRotation = Quaternion.Lerp(
             transform.rotation,
             new Quaternion(transform.rotation.x, transform.rotation.y, -accelerometerVector.x, 1f),
             1f);
@@ -47,13 +47,15 @@ public class PlayerBehaviour : MonoBehaviour
 
     void Move()
     {
-        transform.Translate(Vector3.up * thrust * Time.deltaTime);
+        transform.Translate(Vector3.up * (thrust - gravity) * Time.deltaTime);
     }
 
     void SlowDown()
     {
         if (thrust > 0)
             thrust -= slowDownValue * Time.deltaTime;
+        else
+            thrust = 0;
     }
 
     void SpeedUp()
