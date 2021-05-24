@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6335305991948708761}
   - component: {fileID: 1280485866492042545}
   - component: {fileID: 3890132069186044915}
-  - component: {fileID: 5714249150431166691}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -48,7 +47,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 954e564c26948dd4887d45df4b8703a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 5
   pivot: {fileID: 479794939555337774}
 --- !u!212 &6335305991948708761
 SpriteRenderer:
@@ -147,20 +145,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.8792992, y: 4.7122035}
   m_EdgeRadius: 0
---- !u!114 &5714249150431166691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7499372181473309062}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0ad9f1c545dc974f914a78687571b3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  color: {r: 0, g: 0, b: 0, a: 1}
-  outlineSize: 16
 --- !u!1 &8411099031503719577
 GameObject:
   m_ObjectHideFlags: 0
