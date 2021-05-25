@@ -3,45 +3,51 @@
     "m_SelectedPackage": {
         "deviceId": "0053003994",
         "name": "com.DefaultCompany.com.unity.template.mobile2D",
-        "processId": 17744,
+        "processId": 24327,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "0053003994",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 17348,
-            "exited": true
-        },
-        {
-            "deviceId": "0053003994",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 17884,
-            "exited": true
-        },
-        {
-            "deviceId": "0053003994",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 18389,
-            "exited": true
-        },
-        {
-            "deviceId": "0053003994",
             "name": "com.motorola.launcher3",
             "processId": 4208,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "0053003994",
             "name": "com.unity3d.mobileremote",
             "processId": 29824,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "0053003994",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 17744,
+            "exited": true
+        },
+        {
+            "deviceId": "0053003994",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 21476,
+            "exited": true
+        },
+        {
+            "deviceId": "0053003994",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 21983,
+            "exited": true
+        },
+        {
+            "deviceId": "0053003994",
+            "name": "com.unity3d.mobileremote",
+            "processId": 21116,
+            "exited": false
+        },
+        {
+            "deviceId": "0053003994",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 24327,
             "exited": false
         }
     ],
