@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerBehaviour : MonoBehaviour
 {
     [SerializeField] AudioSource hitAudio;
+    [SerializeField] AudioSource bubblingAudio;
 
     Vector3 accelerometerVector = new Vector3();
 
@@ -64,6 +65,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         OnPlayerSpeedUp();
         FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
+        bubblingAudio.Play();
         thrust += mentosBoostValue;
         if (thrust > maxThrustSpeed)
             thrust = maxThrustSpeed;
