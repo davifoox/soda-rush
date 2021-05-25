@@ -114,6 +114,6 @@ public class PlayerBehaviour : MonoBehaviour
         ParticlesFollow currentParticles;
         currentParticles = Instantiate(initialLiquidParticle, pivot.transform.position, Quaternion.identity);
         currentParticles.player = this;
-        StartCoroutine(liquidTrail.PauseParticles(1.5f));
+        StartCoroutine(liquidTrail.PauseParticles(2f));
     }
 }
