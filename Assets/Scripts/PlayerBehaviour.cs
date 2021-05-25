@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
 {
+    [SerializeField] AudioSource hitAudio;
+
     Vector3 accelerometerVector = new Vector3();
 
     float thrust = 15f;
@@ -70,6 +72,7 @@ public class PlayerBehaviour : MonoBehaviour
     void HitEnemy()
     {
         thrust = -5f;
+        hitAudio.Play();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
