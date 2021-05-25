@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ParticlesFollow : MonoBehaviour
 {
-    [SerializeField] PlayerBehaviour player;
+    public PlayerBehaviour player;
     private Transform target;
-    [SerializeField] ParticleSystem particle;
+    private ParticleSystem particle;
     private float screenHorizontalLimit = 3.3f;
 
     private void Start()
@@ -29,19 +29,19 @@ public class ParticlesFollow : MonoBehaviour
         if (target.transform.position.x > screenHorizontalLimit)
         {
             StopCoroutine("PauseParticles");
-            StartCoroutine("PauseParticles");
+            StartCoroutine(PauseParticles(0.1f));
         }
         else if (target.transform.position.x < -screenHorizontalLimit)
         {
             StopCoroutine("PauseParticles");
-            StartCoroutine("PauseParticles");
+            StartCoroutine(PauseParticles(0.1f));
         }
     }
 
-    IEnumerator PauseParticles()
+    public IEnumerator PauseParticles(float waitTime)
     {
-        particle.Pause();
-        yield return new WaitForSeconds(0.1f);
+        particle.Stop();
+        yield return new WaitForSeconds(waitTime);
         particle.Play();
     }
 }

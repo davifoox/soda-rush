@@ -7,7 +7,8 @@ public class PlayerBehaviour : MonoBehaviour
 {
     [SerializeField] AudioSource hitAudio;
     [SerializeField] AudioSource bubblingAudio;
-
+    [SerializeField] ParticlesFollow initialLiquidParticle;
+    [SerializeField] ParticlesFollow liquidTrail;
     Vector3 accelerometerVector = new Vector3();
 
     float thrust = 15f;
@@ -64,6 +65,7 @@ public class PlayerBehaviour : MonoBehaviour
     void SpeedUp()
     {
         OnPlayerSpeedUp();
+        SpawnInitialLiquidParticles();
         FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
         bubblingAudio.Play();
         thrust += mentosBoostValue;
@@ -105,5 +107,13 @@ public class PlayerBehaviour : MonoBehaviour
     void ApplyGravity()
     {
 
+    }
+
+    void SpawnInitialLiquidParticles()
+    {
+        ParticlesFollow currentParticles;
+        currentParticles = Instantiate(initialLiquidParticle, pivot.transform.position, Quaternion.identity);
+        currentParticles.player = this;
+        StartCoroutine(liquidTrail.PauseParticles(1.5f));
     }
 }

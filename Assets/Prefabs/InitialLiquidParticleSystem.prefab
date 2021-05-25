@@ -607,7 +607,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -983,9 +983,18 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 0.4765095
+          value: 1
+          inSlope: 0.10364118
+          outSlope: 0.10364118
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
@@ -1305,8 +1314,8 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 0.990566, g: 0.94684, b: 0.9017889, a: 1}
-        key1: {r: 1, g: 0.9315675, b: 0.8915094, a: 1}
-        key2: {r: 0.9433962, g: 0.7389282, b: 0.5562478, a: 0}
+        key1: {r: 1, g: 0.9315675, b: 0.8915094, a: 0.7411765}
+        key2: {r: 0.9433962, g: 0.7389282, b: 0.5562478, a: 0.827451}
         key3: {r: 0.9433962, g: 0.6863321, b: 0.43164828, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
@@ -4767,4 +4776,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  particle: {fileID: 4296875871278772578}

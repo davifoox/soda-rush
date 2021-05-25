@@ -51,6 +51,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitAudio: {fileID: 7836667198490457405}
   bubblingAudio: {fileID: 3388326206622699938}
+  initialLiquidParticle: {fileID: 4296875871278772576, guid: 5a5ad65d5aca2ef4d8b88a5d3a97adb9,
+    type: 3}
   pivot: {fileID: 479794939555337774}
 --- !u!212 &6335305991948708761
 SpriteRenderer:

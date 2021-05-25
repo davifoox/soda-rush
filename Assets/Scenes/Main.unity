@@ -2639,6 +2639,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2118342606}
   m_CullTransparentMesh: 0
+--- !u!114 &2141505883 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4267562780005639827, guid: 74224f07d887a1744a87c45aab6a82c6,
+    type: 3}
+  m_PrefabInstance: {fileID: 4267562778703622088}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc3816266658e024285bb00e2fa974f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4267562778703622088
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2710,6 +2722,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LiquidParticleSystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 4267562780005639839, guid: 74224f07d887a1744a87c45aab6a82c6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74224f07d887a1744a87c45aab6a82c6, type: 3}
@@ -2794,6 +2811,11 @@ PrefabInstance:
       propertyPath: speed
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: -6689318677060553789, guid: 95eea84e81876d14993671e60eb2e6f1,
+        type: 3}
+      propertyPath: liquidTrail
+      value: 
+      objectReference: {fileID: 2141505883}
     - target: {fileID: 1280485866492042545, guid: 95eea84e81876d14993671e60eb2e6f1,
         type: 3}
       propertyPath: m_Material
