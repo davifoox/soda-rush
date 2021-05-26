@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] GameObject enemy; // alterar para Enemy quando criar o script dele
-    [SerializeField] MentosBehaviour mentos;
+    [SerializeField] Obstacle handObstacle;
+    [SerializeField] PowerUp mentos;
     [SerializeField] Player player;
     private float offset = 15f;
 
@@ -52,12 +52,12 @@ public class Spawner : MonoBehaviour
         if (xPos > 0)
         {
             xPos = 1.6f;
-            var newEnemy = Instantiate(enemy, new Vector3(xPos, transform.position.y, 0), Quaternion.identity);
+            var newEnemy = Instantiate(handObstacle, new Vector3(xPos, transform.position.y, 0), Quaternion.identity);
         }
         else 
         { 
             xPos = -1.6f;
-            var newEnemy = Instantiate(enemy, new Vector3(xPos, transform.position.y, 0), Quaternion.identity);
+            var newEnemy = Instantiate(handObstacle, new Vector3(xPos, transform.position.y, 0), Quaternion.identity);
             newEnemy.transform.localScale = new Vector2(newEnemy.transform.localScale.x * -1, newEnemy.transform.localScale.y);
         }
 

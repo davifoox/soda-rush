@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 6991195441028305505}
   - component: {fileID: 6991195441028305504}
   - component: {fileID: 6991195441028305511}
+  - component: {fileID: -357981542705400132}
   m_Layer: 10
-  m_Name: Enemy
+  m_Name: HandObstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -130,3 +131,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.1786466, y: 1.2337327}
   m_EdgeRadius: 0
+--- !u!114 &-357981542705400132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6991195441028305510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2229ca88e3f636944b29a18807cbe070, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

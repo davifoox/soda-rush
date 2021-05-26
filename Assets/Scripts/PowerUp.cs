@@ -1,9 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 
-public class MentosBehaviour : MonoBehaviour
+public class PowerUp : MonoBehaviour
 {
     private void Start()
     {
