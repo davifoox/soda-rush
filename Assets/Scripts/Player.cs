@@ -5,27 +5,33 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] AudioSource hitAudio;
-    [SerializeField] AudioSource bubblingAudio;
+    [SerializeField] AudioSource hitSound;
+    [SerializeField] AudioSource boostSound;
     [SerializeField] BoostParticles boostParticles;
-    [SerializeField] ParticlesFollow liquidTrail;
-    Vector3 accelerometerVector = new Vector3();
+    [SerializeField] TrailParticles trailParticles;
 
-    float thrust = 15f;
-    float slowDownValue = 0.2f;
-    float maxThrustSpeed = 18f;
-    float gravity = 10f;
+    private Vector3 accelerometerVector = new Vector3();
+
+    private float speed = 15f;
+    private float maxSpeed = 18f;
+    private float slowDownValue = 0.2f;
+    private float gravity = 10f;
 
     private float screenHorizontalLimit = 3.3f;
 
     // EVENTS
-    public delegate void PlayerSpeedUp();
-    public event PlayerSpeedUp OnPlayerSpeedUp;
+    public delegate void PlayerBoosted();
+    public event PlayerBoosted OnPlayerBoosted;
 
-    public Transform pivot;
+    public Transform particlesSpawnPoint;
 
     float mentosBoostValue = 5f; //isso aqui tem que ir pro próprio mentos
 
+    private void Start()
+    {
+        trailParticles = Instantiate(trailParticles, particlesSpawnPoint.transform.position, Quaternion.identity);
+        trailParticles.player = this;
+    }
 
     void Update()
     {
@@ -51,33 +57,33 @@ public class Player : MonoBehaviour
 
     void Move()
     {
-        transform.Translate(Vector3.up * (thrust - gravity) * Time.deltaTime);
+        transform.Translate(Vector3.up * (speed - gravity) * Time.deltaTime);
         transform.position = new Vector3(transform.position.x, transform.position.y, 10f); // coloca o sprite atrás das partículas
     }
 
     void SlowDown()
     {
-        if (thrust > 0)
-            thrust -= slowDownValue * Time.deltaTime;
+        if (speed > 0)
+            speed -= slowDownValue * Time.deltaTime;
         else
-            thrust = 0;
+            speed = 0;
     }
 
     void SpeedUp()
     {
-        OnPlayerSpeedUp();
+        OnPlayerBoosted();
         SpawnInitialLiquidParticles();
         FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
-        bubblingAudio.Play();
-        thrust += mentosBoostValue;
-        if (thrust > maxThrustSpeed)
-            thrust = maxThrustSpeed;
+        boostSound.Play();
+        speed += mentosBoostValue;
+        if (speed > maxSpeed)
+            speed = maxSpeed;
     }
 
     void HitEnemy()
     {
-        thrust = -5f;
-        hitAudio.Play();
+        speed = -5f;
+        hitSound.Play();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -105,18 +111,13 @@ public class Player : MonoBehaviour
         }
     }
 
-    void ApplyGravity()
-    {
-
-    }
-
     void SpawnInitialLiquidParticles()
     {
         BoostParticles currentParticles;
-        currentParticles = Instantiate(boostParticles, pivot.transform.position, Quaternion.identity);
+        currentParticles = Instantiate(boostParticles, particlesSpawnPoint.transform.position, Quaternion.identity);
         currentParticles.player = this;
 
-        liquidTrail.StopCoroutine("PauseParticles");
-        StartCoroutine(liquidTrail.PauseParticles(2f));
+        trailParticles.StopCoroutine("PauseParticles");
+        StartCoroutine(trailParticles.PauseParticles(2f));
     }
 }

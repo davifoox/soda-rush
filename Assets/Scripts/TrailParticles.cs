@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ParticlesFollow : MonoBehaviour
+public class TrailParticles : MonoBehaviour
 {
     public Player player;
     private Transform target;
@@ -11,7 +11,7 @@ public class ParticlesFollow : MonoBehaviour
 
     private void Start()
     {
-        target = player.pivot.transform;
+        target = player.particlesSpawnPoint.transform;
         particle = GetComponent<ParticleSystem>();
     }
 

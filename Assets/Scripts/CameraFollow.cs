@@ -25,12 +25,12 @@ public class CameraFollow : MonoBehaviour
 
     private void OnEnable()
     {
-        player.OnPlayerSpeedUp += ShakeCamera;
+        player.OnPlayerBoosted += ShakeCamera;
     }
 
     private void OnDisable()
     {
-        player.OnPlayerSpeedUp -= ShakeCamera;
+        player.OnPlayerBoosted -= ShakeCamera;
     }
 
     void ShakeCamera()

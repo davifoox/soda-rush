@@ -49,11 +49,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 954e564c26948dd4887d45df4b8703a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitAudio: {fileID: 7836667198490457405}
-  bubblingAudio: {fileID: 3388326206622699938}
-  boostParticles: {fileID: 0}
-  liquidTrail: {fileID: 0}
-  pivot: {fileID: 479794939555337774}
+  hitSound: {fileID: 7836667198490457405}
+  boostSound: {fileID: 3388326206622699938}
+  boostParticles: {fileID: 5033179648004701496, guid: 5a5ad65d5aca2ef4d8b88a5d3a97adb9,
+    type: 3}
+  trailParticles: {fileID: 4267562780005639827, guid: 74224f07d887a1744a87c45aab6a82c6,
+    type: 3}
+  particlesSpawnPoint: {fileID: 479794939555337774}
 --- !u!212 &6335305991948708761
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -353,7 +355,7 @@ GameObject:
   m_Component:
   - component: {fileID: 479794939555337774}
   m_Layer: 8
-  m_Name: Pivot
+  m_Name: ParticlesSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

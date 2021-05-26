@@ -11,7 +11,7 @@ public class BoostParticles : MonoBehaviour
 
     private void Start()
     {
-        target = player.pivot.transform;
+        target = player.particlesSpawnPoint.transform;
         particle = GetComponent<ParticleSystem>();
     }
 
