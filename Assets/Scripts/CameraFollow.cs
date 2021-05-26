@@ -5,7 +5,7 @@ using DG.Tweening;
 
 public class CameraFollow : MonoBehaviour
 {
-    [SerializeField] PlayerBehaviour player;
+    [SerializeField] Player player;
     [SerializeField] Transform cameraHolder;
     int offset = 2;
 

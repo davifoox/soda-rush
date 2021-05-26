@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BoostParticles : MonoBehaviour
 {
-    public PlayerBehaviour player;
+    public Player player;
     private Transform target;
     private ParticleSystem particle;
     private float screenHorizontalLimit = 3.3f;

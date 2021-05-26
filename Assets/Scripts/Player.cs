@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class PlayerBehaviour : MonoBehaviour
+public class Player : MonoBehaviour
 {
     [SerializeField] AudioSource hitAudio;
     [SerializeField] AudioSource bubblingAudio;

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] CameraFollow cameraFollow;
-    [SerializeField] PlayerBehaviour player;
+    [SerializeField] Player player;
     [SerializeField] Text scoreText;
     [SerializeField] Button pauseButton;
     [SerializeField] Canvas uiCanvas;

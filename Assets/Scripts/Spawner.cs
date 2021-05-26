@@ -6,7 +6,7 @@ public class Spawner : MonoBehaviour
 {
     [SerializeField] GameObject enemy; // alterar para Enemy quando criar o script dele
     [SerializeField] MentosBehaviour mentos;
-    [SerializeField] PlayerBehaviour player;
+    [SerializeField] Player player;
     private float offset = 15f;
 
     private bool startedSpawning = false;
