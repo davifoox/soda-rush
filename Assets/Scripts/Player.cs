@@ -70,9 +70,10 @@ public class Player : MonoBehaviour
     void SpeedUp()
     {
         OnPlayerBoosted();
-        SpawnInitialLiquidParticles();
+        SpawnBoostParticles();
         FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
         boostSound.Play();
+
         speed += mentosBoostValue;
         if (speed > maxSpeed)
             speed = maxSpeed;
@@ -86,12 +87,14 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == 9) // Mentos Layer
+        if (collision.gameObject.layer == 9) // Single Mentos Layer
         {
             SpeedUp();
         }
 
-        if (collision.gameObject.layer == 10) // Enemy Layer
+        // se colisão for com camada de outro powerup (ex: 3mentos) emitir evento pro level manager resolver (aparecer na ui, etc)
+
+        if (collision.gameObject.layer == 10) // Obstacle Layer
         {
             HitEnemy();
         }
@@ -109,7 +112,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    void SpawnInitialLiquidParticles()
+    void SpawnBoostParticles()
     {
         BoostParticles currentParticles;
         currentParticles = Instantiate(boostParticles, particlesSpawnPoint.transform.position, Quaternion.identity);
