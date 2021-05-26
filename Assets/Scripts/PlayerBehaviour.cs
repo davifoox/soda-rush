@@ -7,7 +7,7 @@ public class PlayerBehaviour : MonoBehaviour
 {
     [SerializeField] AudioSource hitAudio;
     [SerializeField] AudioSource bubblingAudio;
-    [SerializeField] ParticlesFollow initialLiquidParticle;
+    [SerializeField] BoostParticles boostParticles;
     [SerializeField] ParticlesFollow liquidTrail;
     Vector3 accelerometerVector = new Vector3();
 
@@ -111,8 +111,8 @@ public class PlayerBehaviour : MonoBehaviour
 
     void SpawnInitialLiquidParticles()
     {
-        ParticlesFollow currentParticles;
-        currentParticles = Instantiate(initialLiquidParticle, pivot.transform.position, Quaternion.identity);
+        BoostParticles currentParticles;
+        currentParticles = Instantiate(boostParticles, pivot.transform.position, Quaternion.identity);
         currentParticles.player = this;
 
         liquidTrail.StopCoroutine("PauseParticles");

@@ -2816,6 +2816,12 @@ PrefabInstance:
       propertyPath: liquidTrail
       value: 
       objectReference: {fileID: 2141505883}
+    - target: {fileID: -6689318677060553789, guid: 95eea84e81876d14993671e60eb2e6f1,
+        type: 3}
+      propertyPath: boostParticles
+      value: 
+      objectReference: {fileID: 5033179648004701496, guid: 5a5ad65d5aca2ef4d8b88a5d3a97adb9,
+        type: 3}
     - target: {fileID: 1280485866492042545, guid: 95eea84e81876d14993671e60eb2e6f1,
         type: 3}
       propertyPath: m_Material
