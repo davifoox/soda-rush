@@ -52,6 +52,7 @@ public class PlayerBehaviour : MonoBehaviour
     void Move()
     {
         transform.Translate(Vector3.up * (thrust - gravity) * Time.deltaTime);
+        transform.position = new Vector3(transform.position.x, transform.position.y, 10f); // coloca o sprite atrás das partículas
     }
 
     void SlowDown()

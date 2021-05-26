@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7499372181473309062}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 500}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children:
   - {fileID: 479794939555337774}
@@ -51,8 +51,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitAudio: {fileID: 7836667198490457405}
   bubblingAudio: {fileID: 3388326206622699938}
-  initialLiquidParticle: {fileID: 4296875871278772576, guid: 5a5ad65d5aca2ef4d8b88a5d3a97adb9,
-    type: 3}
+  boostParticles: {fileID: 0}
+  liquidTrail: {fileID: 0}
   pivot: {fileID: 479794939555337774}
 --- !u!212 &6335305991948708761
 SpriteRenderer:
@@ -93,7 +93,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5ec6d650632188d48af6191fad5b57fa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4b290241990fd2c409e9c85a7ec8252f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -367,7 +367,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8411099031503719577}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.13, z: 0}
+  m_LocalPosition: {x: 0, y: -3.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7499372181473309061}
