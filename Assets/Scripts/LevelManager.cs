@@ -12,6 +12,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] Button pauseButton;
     [SerializeField] Canvas uiCanvas;
     [SerializeField] Canvas pauseMenuCanvas;
+    [SerializeField] Button threeMentosButton;
 
     float currentPlayerScore;
 
@@ -24,12 +25,16 @@ public class LevelManager : MonoBehaviour
     {
         cameraFollow.OnPlayerLefScreen += SaveHighscore;
         cameraFollow.OnPlayerLefScreen += ReloadCurrentScene;
+
+        player.OnPlayerPicked3Mentos += PlayerPick3Mentos;
     }
 
     private void OnDisable()
     {
         cameraFollow.OnPlayerLefScreen -= SaveHighscore;
         cameraFollow.OnPlayerLefScreen -= ReloadCurrentScene;
+
+        player.OnPlayerPicked3Mentos -= PlayerPick3Mentos;
     }
 
     void SaveHighscore()
@@ -64,5 +69,11 @@ public class LevelManager : MonoBehaviour
         Debug.Log("Pausing");
         //uiCanvas.gameObject.SetActive(false);
         pauseMenuCanvas.gameObject.SetActive(true);
+    }
+
+    void PlayerPick3Mentos()
+    {
+        Debug.Log("3 mentos pickup");
+        threeMentosButton.gameObject.SetActive(true);
     }
 }

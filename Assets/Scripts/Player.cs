@@ -23,7 +23,11 @@ public class Player : MonoBehaviour
     public delegate void PlayerBoosted();
     public event PlayerBoosted OnPlayerBoosted;
 
-    float mentosBoostValue = 5f; //isso aqui tem que ir pro próprio mentos
+    public delegate void PlayerPicked3Mentos();
+    public event PlayerBoosted OnPlayerPicked3Mentos;
+    // ------
+
+    float mentosBoostValue = 5f; // colocar no próprio mentos?
 
     private void Start()
     {
@@ -40,8 +44,8 @@ public class Player : MonoBehaviour
     {
         RotatePlayer();
         Move();
-        MirrorPosition();
         SlowDown();
+        MirrorPosition();
     }
 
     public void RotatePlayer()
@@ -67,39 +71,6 @@ public class Player : MonoBehaviour
             speed = 0;
     }
 
-    void SpeedUp()
-    {
-        OnPlayerBoosted();
-        SpawnBoostParticles();
-        FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
-        boostSound.Play();
-
-        speed += mentosBoostValue;
-        if (speed > maxSpeed)
-            speed = maxSpeed;
-    }
-
-    void HitEnemy()
-    {
-        speed = -5f;
-        hitSound.Play();
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.layer == 9) // Single Mentos Layer
-        {
-            SpeedUp();
-        }
-
-        // se colisão for com camada de outro powerup (ex: 3mentos) emitir evento pro level manager resolver (aparecer na ui, etc)
-
-        if (collision.gameObject.layer == 10) // Obstacle Layer
-        {
-            HitEnemy();
-        }
-    }
-
     void MirrorPosition()
     {
         if (transform.position.x > screenHorizontalLimit)
@@ -112,6 +83,18 @@ public class Player : MonoBehaviour
         }
     }
 
+    void SpeedUp()
+    {
+        OnPlayerBoosted();
+        SpawnBoostParticles();
+        FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
+        boostSound.Play();
+
+        speed += mentosBoostValue;
+        if (speed > maxSpeed)
+            speed = maxSpeed;
+    }
+
     void SpawnBoostParticles()
     {
         BoostParticles currentParticles;
@@ -120,5 +103,29 @@ public class Player : MonoBehaviour
 
         trailParticles.StopCoroutine("PauseParticles");
         StartCoroutine(trailParticles.PauseParticles(2f));
+    }
+
+    void HitEnemy()
+    {
+        speed = -5f;
+        hitSound.Play();
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 9) // Power Up Layer
+        {
+            if (collision.gameObject.tag == "Mentos")
+                SpeedUp();
+            else if (collision.gameObject.tag == "3Mentos")
+                OnPlayerPicked3Mentos();
+        }
+
+        if (collision.gameObject.layer == 10) // Obstacle Layer
+        {
+            if(collision.gameObject.tag == "Hand")
+                HitEnemy();
+        }
     }
 }
