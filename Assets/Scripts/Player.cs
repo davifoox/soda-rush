@@ -83,7 +83,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    void SpeedUp()
+    public void SpeedUp()
     {
         OnPlayerBoosted();
         SpawnBoostParticles();

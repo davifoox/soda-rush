@@ -19,6 +19,7 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         pauseButton.onClick.AddListener(() => { PauseGame(); });
+        threeMentosButton.onClick.AddListener(() => { BoostPlayer(); });
     }
 
     private void OnEnable()
@@ -73,7 +74,12 @@ public class LevelManager : MonoBehaviour
 
     void PlayerPick3Mentos()
     {
-        Debug.Log("3 mentos pickup");
-        threeMentosButton.gameObject.SetActive(true);
+        if(!threeMentosButton.gameObject.activeSelf)
+            threeMentosButton.gameObject.SetActive(true);
+    }
+
+    void BoostPlayer()
+    {
+        player.SpeedUp();
     }
 }
