@@ -9,21 +9,19 @@ public class Player : MonoBehaviour
     [SerializeField] AudioSource boostSound;
     [SerializeField] BoostParticles boostParticles;
     [SerializeField] TrailParticles trailParticles;
+    public Transform particlesSpawnPoint;
 
     private Vector3 accelerometerVector = new Vector3();
+    private float screenHorizontalLimit = 3.3f;
 
     private float speed = 15f;
     private float maxSpeed = 18f;
     private float slowDownValue = 0.2f;
     private float gravity = 10f;
 
-    private float screenHorizontalLimit = 3.3f;
-
     // EVENTS
     public delegate void PlayerBoosted();
     public event PlayerBoosted OnPlayerBoosted;
-
-    public Transform particlesSpawnPoint;
 
     float mentosBoostValue = 5f; //isso aqui tem que ir pro próprio mentos
 
