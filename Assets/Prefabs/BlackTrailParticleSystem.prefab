@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4267562780005639824}
   - component: {fileID: 4267562780005639827}
   m_Layer: 0
-  m_Name: LiquidParticleSystem
+  m_Name: BlackTrailParticleSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2627,7 +2627,7 @@ ParticleSystem:
     strength:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
