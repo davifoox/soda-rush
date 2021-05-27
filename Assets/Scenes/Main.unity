@@ -2452,6 +2452,7 @@ GameObject:
   - component: {fileID: 1928613211}
   - component: {fileID: 1928613210}
   - component: {fileID: 1928613209}
+  - component: {fileID: 1928613214}
   m_Layer: 10
   m_Name: Airplane
   m_TagString: Airplane
@@ -2576,12 +2577,24 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1928613208}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.63, y: 8.41, z: 0}
+  m_LocalPosition: {x: 3.7, y: 8.41, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1928613214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1928613208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62db0cc32e002a24ca8f9de33cfb2a86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1945348930
 GameObject:
   m_ObjectHideFlags: 0
@@ -2981,6 +2994,11 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: b3d4ad98ff2b3714299ff7a5cb87b325, type: 2}
+    - target: {fileID: 3890132069186044915, guid: 95eea84e81876d14993671e60eb2e6f1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3890132069186044915, guid: 95eea84e81876d14993671e60eb2e6f1,
         type: 3}
       propertyPath: m_Material
