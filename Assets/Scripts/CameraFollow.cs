@@ -36,7 +36,7 @@ public class CameraFollow : MonoBehaviour
     void ShakeCamera()
     {
         Camera.main.DOComplete();
-        Camera.main.transform.DOShakePosition(2f, .25f, 50, 90, false);
+        Camera.main.transform.DOShakePosition(2.5f, .25f, 50, 90, false);
         //Debug.Log("Shaking Camera...");
     }
 }
