@@ -124,8 +124,11 @@ public class Player : MonoBehaviour
 
         if (collision.gameObject.layer == 10) // Obstacle Layer
         {
-            if(collision.gameObject.tag == "Hand")
+            if (collision.gameObject.tag == "Airplane")
                 HitEnemy();
+
+            if(collision.gameObject.tag == "Hand")
+                HitEnemy(); //fazer a lata ser pega pela mão (comportamento específico da mão)
         }
     }
 }
