@@ -6,6 +6,7 @@ public class Spawner : MonoBehaviour
 {
     [SerializeField] Obstacle handObstacle;
     [SerializeField] PowerUp mentos;
+    [SerializeField] PowerUp threeMentos;
     [SerializeField] Player player;
     private float offset = 15f;
 

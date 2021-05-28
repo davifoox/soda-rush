@@ -10,6 +10,7 @@ public class UsePowerUpButton : MonoBehaviour
     [SerializeField] Image image;
 
     private int currentSprite = 0;
+    public string currentMentosColor;
 
     private void Start()
     {
@@ -18,6 +19,7 @@ public class UsePowerUpButton : MonoBehaviour
 
     public void SetMentosProperties(int quantity, string mentosColor)
     {
+        currentMentosColor = mentosColor;
         currentSprite = quantity -1;
         image.sprite = sprites[currentSprite];
     }

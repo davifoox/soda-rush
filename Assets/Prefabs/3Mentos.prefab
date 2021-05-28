@@ -134,6 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 415ac87a3c41c9a49af86a132cf74183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mentosColor: blue
 --- !u!1001 &8579620601572631984
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PowerUp : MonoBehaviour
 {
+    public string mentosColor;
+
     private void Start()
     {
         Destroy(this.gameObject, 10f);

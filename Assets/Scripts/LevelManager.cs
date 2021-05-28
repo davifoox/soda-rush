@@ -21,8 +21,8 @@ public class LevelManager : MonoBehaviour
         pauseButton.onClick.AddListener(() => { PauseGame(); });
         usePowerUpButton.GetComponent<Button>().onClick.AddListener(() => 
         {
-            // checar aqui usePowerUpButton.mentosColor e usar o power up de acordo com o tipo de mentos
-            UsePowerUp(); 
+            if(usePowerUpButton.currentMentosColor == "blue")
+                player.SpeedUp();
         });
     }
 
@@ -85,8 +85,5 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    void UsePowerUp()
-    {
-        player.SpeedUp();
-    }
+
 }

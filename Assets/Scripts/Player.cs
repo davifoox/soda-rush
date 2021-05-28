@@ -116,10 +116,17 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.layer == 9) // Power Up Layer
         {
+            PowerUp powerUp = collision.gameObject.GetComponent<PowerUp>();
+
             if (collision.gameObject.tag == "Mentos")
-                OnPlayerPickedMentos(1, "blue");
+            {
+
+                OnPlayerPickedMentos(1, powerUp.mentosColor);
+            }
             else if (collision.gameObject.tag == "3Mentos")
-                OnPlayerPickedMentos(3, "blue");
+            {
+                OnPlayerPickedMentos(3, powerUp.mentosColor);
+            }
         }
 
 
