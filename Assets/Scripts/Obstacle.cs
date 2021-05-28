@@ -6,8 +6,9 @@ public class Obstacle : MonoBehaviour
 {
     public Transform player;
 
-    private void Start()
+    private void FixedUpdate()
     {
-        Destroy(this.gameObject, 20f);
+        if (player.position.y > this.transform.position.y + 5f)
+            Destroy(this.gameObject);
     }
 }

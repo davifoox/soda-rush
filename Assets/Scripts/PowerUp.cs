@@ -7,9 +7,10 @@ public class PowerUp : MonoBehaviour
     public string mentosColor;
     public Transform player;
 
-    private void Start()
+    private void FixedUpdate()
     {
-        Destroy(this.gameObject, 10f);
+        if(player.position.y > this.transform.position.y + 5f)
+            Destroy(this.gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
