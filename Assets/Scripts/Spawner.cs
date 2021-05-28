@@ -5,6 +5,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     [SerializeField] Obstacle handObstacle;
+    [SerializeField] Obstacle airplane;
     [SerializeField] PowerUp mentos;
     [SerializeField] PowerUp threeMentos;
     [SerializeField] Player player;

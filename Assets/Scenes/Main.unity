@@ -1853,8 +1853,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handObstacle: {fileID: -357981542705400132, guid: 0476cafb94e130e4b81da955fa22285f,
     type: 3}
+  airplane: {fileID: 8629418931976978752, guid: 30d09c61e8cc9554d8588028a20fd888,
+    type: 3}
   mentos: {fileID: 4260745543985332295, guid: 0f225e91a3dc4d7409797850a5be8490, type: 3}
-  threeMentos: {fileID: 0}
+  threeMentos: {fileID: 4567307204264472025, guid: 0e106230b49cd384cac9d8567156d5fd,
+    type: 3}
   player: {fileID: 163915015}
 --- !u!4 &1521508022
 Transform:
@@ -3010,7 +3013,7 @@ PrefabInstance:
     - target: {fileID: 8424114897179362483, guid: 0f225e91a3dc4d7409797850a5be8490,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f225e91a3dc4d7409797850a5be8490, type: 3}
@@ -3029,7 +3032,7 @@ PrefabInstance:
     - target: {fileID: 8579620600799998716, guid: 0e106230b49cd384cac9d8567156d5fd,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8579620600799998719, guid: 0e106230b49cd384cac9d8567156d5fd,
         type: 3}
