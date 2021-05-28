@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            DontDestroyOnLoad(transform.gameObject);
             _instance = this;
         }
     }
