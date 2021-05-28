@@ -5,6 +5,7 @@ using UnityEngine;
 public class PowerUp : MonoBehaviour
 {
     public string mentosColor;
+    public Transform player;
 
     private void Start()
     {

@@ -1867,7 +1867,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1521508020}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4, z: 0}
+  m_LocalPosition: {x: 0, y: 5, z: 0}
   m_LocalScale: {x: 0.19, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2941,6 +2941,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7499372181473309062, guid: 95eea84e81876d14993671e60eb2e6f1,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95eea84e81876d14993671e60eb2e6f1, type: 3}
 --- !u!1001 &8424114897792602369
@@ -3102,6 +3107,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Airplane
+      objectReference: {fileID: 0}
+    - target: {fileID: 8629418931976978753, guid: 30d09c61e8cc9554d8588028a20fd888,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8629418931976978756, guid: 30d09c61e8cc9554d8588028a20fd888,
         type: 3}
