@@ -23,8 +23,8 @@ public class Player : MonoBehaviour
     public delegate void PlayerBoosted();
     public event PlayerBoosted OnPlayerBoosted;
 
-    public delegate void PlayerPicked3Mentos();
-    public event PlayerBoosted OnPlayerPicked3Mentos;
+    public delegate void PlayerPickedMentos(int quantity, string mentosColor);
+    public event PlayerPickedMentos OnPlayerPickedMentos;
     // ------
 
     float mentosBoostValue = 5f; // colocar no próprio mentos?
@@ -117,17 +117,17 @@ public class Player : MonoBehaviour
         if (collision.gameObject.layer == 9) // Power Up Layer
         {
             if (collision.gameObject.tag == "Mentos")
-                SpeedUp();
+                OnPlayerPickedMentos(1, "blue");
             else if (collision.gameObject.tag == "3Mentos")
-                OnPlayerPicked3Mentos();
+                OnPlayerPickedMentos(3, "blue");
         }
+
 
         if (collision.gameObject.layer == 10) // Obstacle Layer
         {
             if (collision.gameObject.tag == "Airplane")
                 HitEnemy();
-
-            if(collision.gameObject.tag == "Hand")
+            else if(collision.gameObject.tag == "Hand")
                 HitEnemy(); //fazer a lata ser pega pela mão (comportamento específico da mão)
         }
     }

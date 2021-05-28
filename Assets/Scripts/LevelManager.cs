@@ -12,14 +12,18 @@ public class LevelManager : MonoBehaviour
     [SerializeField] Button pauseButton;
     [SerializeField] Canvas uiCanvas;
     [SerializeField] Canvas pauseMenuCanvas;
-    [SerializeField] Button threeMentosButton;
+    [SerializeField] UsePowerUpButton usePowerUpButton;
 
     float currentPlayerScore;
 
     private void Start()
     {
         pauseButton.onClick.AddListener(() => { PauseGame(); });
-        threeMentosButton.onClick.AddListener(() => { BoostPlayer(); });
+        usePowerUpButton.GetComponent<Button>().onClick.AddListener(() => 
+        {
+            // checar aqui usePowerUpButton.mentosColor e usar o power up de acordo com o tipo de mentos
+            UsePowerUp(); 
+        });
     }
 
     private void OnEnable()
@@ -27,7 +31,7 @@ public class LevelManager : MonoBehaviour
         cameraFollow.OnPlayerLefScreen += SaveHighscore;
         cameraFollow.OnPlayerLefScreen += ReloadCurrentScene;
 
-        player.OnPlayerPicked3Mentos += PlayerPick3Mentos;
+        player.OnPlayerPickedMentos += PlayerPickMentos;
     }
 
     private void OnDisable()
@@ -35,7 +39,7 @@ public class LevelManager : MonoBehaviour
         cameraFollow.OnPlayerLefScreen -= SaveHighscore;
         cameraFollow.OnPlayerLefScreen -= ReloadCurrentScene;
 
-        player.OnPlayerPicked3Mentos -= PlayerPick3Mentos;
+        player.OnPlayerPickedMentos -= PlayerPickMentos;
     }
 
     void SaveHighscore()
@@ -72,13 +76,16 @@ public class LevelManager : MonoBehaviour
         pauseMenuCanvas.gameObject.SetActive(true);
     }
 
-    void PlayerPick3Mentos()
+    void PlayerPickMentos(int quantity, string mentosColor)
     {
-        if(!threeMentosButton.gameObject.activeSelf)
-            threeMentosButton.gameObject.SetActive(true);
+        if (!usePowerUpButton.gameObject.activeSelf)
+        {
+            usePowerUpButton.gameObject.SetActive(true);
+            usePowerUpButton.gameObject.GetComponent<UsePowerUpButton>().SetMentosProperties(quantity, mentosColor);
+        }
     }
 
-    void BoostPlayer()
+    void UsePowerUp()
     {
         player.SpeedUp();
     }

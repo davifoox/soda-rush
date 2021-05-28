@@ -433,75 +433,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 376580678}
   m_CullTransparentMesh: 0
---- !u!1001 &411800632
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 8579620600799998716, guid: 0e106230b49cd384cac9d8567156d5fd,
-        type: 3}
-      propertyPath: m_Name
-      value: 3Mentos (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8579620600799998719, guid: 0e106230b49cd384cac9d8567156d5fd,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8579620600799998719, guid: 0e106230b49cd384cac9d8567156d5fd,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.12
-      objectReference: {fileID: 0}
-    - target: {fileID: 8579620600799998719, guid: 0e106230b49cd384cac9d8567156d5fd,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 31.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8579620600799998719, guid: 0e106230b49cd384cac9d8567156d5fd,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -7.5245833
-      objectReference: {fileID: 0}
-    - target: {fileID: 8579620600799998719, guid: 0e106230b49cd384cac9d8567156d5fd,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8579620600799998719, guid: 0e106230b49cd384cac9d8567156d5fd,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8579620600799998719, guid: 0e106230b49cd384cac9d8567156d5fd,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8579620600799998719, guid: 0e106230b49cd384cac9d8567156d5fd,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8579620600799998719, guid: 0e106230b49cd384cac9d8567156d5fd,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8579620600799998719, guid: 0e106230b49cd384cac9d8567156d5fd,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8579620600799998719, guid: 0e106230b49cd384cac9d8567156d5fd,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0e106230b49cd384cac9d8567156d5fd, type: 3}
 --- !u!1 &446739988
 GameObject:
   m_ObjectHideFlags: 0
@@ -1094,7 +1025,7 @@ RectTransform:
   - {fileID: 1605679038}
   - {fileID: 2109243044}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1551,7 +1482,7 @@ GameObject:
   - component: {fileID: 1206006529}
   - component: {fileID: 1206006532}
   m_Layer: 5
-  m_Name: 3MentosButton
+  m_Name: UsePowerUpButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1669,9 +1600,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 21300000, guid: 2a51357ceb53e814dbbbe38d449f6c01, type: 3}
-  - {fileID: 21300000, guid: 337159579aa52f04e84016a4147857e3, type: 3}
   - {fileID: 21300000, guid: f90feac842f7d794281fefa103ca2e44, type: 3}
+  - {fileID: 21300000, guid: 337159579aa52f04e84016a4147857e3, type: 3}
+  - {fileID: 21300000, guid: 2a51357ceb53e814dbbbe38d449f6c01, type: 3}
   button: {fileID: 1206006529}
   image: {fileID: 1206006530}
 --- !u!1 &1262180711
@@ -1882,7 +1813,7 @@ RectTransform:
   - {fileID: 2039735339}
   - {fileID: 1262180712}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1935,7 +1866,7 @@ Transform:
   m_LocalScale: {x: 0.19, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1521508023
 SpriteRenderer:
@@ -2210,7 +2141,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1808526935
 GameObject:
@@ -2423,7 +2354,7 @@ MonoBehaviour:
   pauseButton: {fileID: 2039735340}
   uiCanvas: {fileID: 1363865873}
   pauseMenuCanvas: {fileID: 615238577}
-  threeMentosButton: {fileID: 1206006529}
+  usePowerUpButton: {fileID: 1206006532}
 --- !u!4 &1916400545
 Transform:
   m_ObjectHideFlags: 0
@@ -3017,7 +2948,7 @@ PrefabInstance:
     - target: {fileID: 8424114897179362482, guid: 0f225e91a3dc4d7409797850a5be8490,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8424114897179362482, guid: 0f225e91a3dc4d7409797850a5be8490,
         type: 3}
@@ -3077,7 +3008,7 @@ PrefabInstance:
     - target: {fileID: 8424114897179362483, guid: 0f225e91a3dc4d7409797850a5be8490,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f225e91a3dc4d7409797850a5be8490, type: 3}
@@ -3092,6 +3023,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 3Mentos
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579620600799998716, guid: 0e106230b49cd384cac9d8567156d5fd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8579620600799998719, guid: 0e106230b49cd384cac9d8567156d5fd,
         type: 3}
@@ -3165,7 +3101,7 @@ PrefabInstance:
     - target: {fileID: 8629418931976978756, guid: 30d09c61e8cc9554d8588028a20fd888,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8629418931976978756, guid: 30d09c61e8cc9554d8588028a20fd888,
         type: 3}

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ThreeMentosButton : MonoBehaviour
+public class UsePowerUpButton : MonoBehaviour
 {
     [SerializeField] Sprite[] sprites;
     [SerializeField] Button button;
@@ -16,16 +16,16 @@ public class ThreeMentosButton : MonoBehaviour
         button.onClick.AddListener(() => { ButtonPressed(); });
     }
 
-    private void OnEnable()
+    public void SetMentosProperties(int quantity, string mentosColor)
     {
-        currentSprite = 0;
+        currentSprite = quantity -1;
         image.sprite = sprites[currentSprite];
     }
 
     void ButtonPressed()
     {
-        currentSprite++;
-        if (currentSprite == 3)
+        currentSprite--;
+        if (currentSprite == -1)
             this.gameObject.SetActive(false);
         else
             image.sprite = sprites[currentSprite];
