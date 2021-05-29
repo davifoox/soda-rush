@@ -83,7 +83,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void SpeedUp()
+    public void Boost()
     {
         OnPlayerBoosted();
         SpawnBoostParticles();
@@ -120,8 +120,10 @@ public class Player : MonoBehaviour
 
             if (collision.gameObject.tag == "Mentos")
             {
-
-                OnPlayerPickedMentos(1, powerUp.mentosColor);
+                if (powerUp.mentosColor == "blue")
+                    Boost();
+                else
+                    OnPlayerPickedMentos(1, powerUp.mentosColor);
             }
             else if (collision.gameObject.tag == "3Mentos")
             {
