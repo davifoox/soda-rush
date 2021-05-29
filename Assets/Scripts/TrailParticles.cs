@@ -42,6 +42,7 @@ public class TrailParticles : MonoBehaviour
     {
         particle.Stop();
         yield return new WaitForSeconds(waitTime);
-        particle.Play();
+        if(FindObjectsOfType<BoostParticles>().Length == 0)
+            particle.Play();
     }
 }
