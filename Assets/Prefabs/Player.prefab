@@ -53,7 +53,7 @@ MonoBehaviour:
   boostSound: {fileID: 3388326206622699938}
   boostParticles: {fileID: 5033179648004701496, guid: 5a5ad65d5aca2ef4d8b88a5d3a97adb9,
     type: 3}
-  trailParticles: {fileID: 4267562780005639827, guid: 74224f07d887a1744a87c45aab6a82c6,
+  trailParticles: {fileID: 4267562780005639827, guid: 839459bfcbbb00747a9e1a0e941fdefc,
     type: 3}
   particlesSpawnPoint: {fileID: 479794939555337774}
 --- !u!212 &6335305991948708761
