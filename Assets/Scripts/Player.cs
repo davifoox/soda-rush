@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        Vibration.Init();
         trailParticles = Instantiate(trailParticles, particlesSpawnPoint.transform.position, Quaternion.identity);
         trailParticles.player = this;
     }
@@ -85,6 +86,7 @@ public class Player : MonoBehaviour
 
     public void Boost()
     {
+        Vibration.VibratePop();
         OnPlayerBoosted();
         SpawnBoostParticles();
         FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
