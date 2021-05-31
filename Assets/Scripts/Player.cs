@@ -31,7 +31,6 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        Vibration.Init();
         trailParticles = Instantiate(trailParticles, particlesSpawnPoint.transform.position, Quaternion.identity);
         trailParticles.player = this;
     }
@@ -86,7 +85,7 @@ public class Player : MonoBehaviour
 
     public void Boost()
     {
-        Vibration.VibratePop();
+        GameManager.Instance.VibratePhone(50);
         OnPlayerBoosted();
         SpawnBoostParticles();
         FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
@@ -109,6 +108,8 @@ public class Player : MonoBehaviour
 
     void HitEnemy()
     {
+        GameManager.Instance.VibratePhone(100);
+        Vibration.VibratePeek();
         speed = -5f;
         hitSound.Play();
     }
@@ -129,6 +130,7 @@ public class Player : MonoBehaviour
             }
             else if (collision.gameObject.tag == "3Mentos")
             {
+                GameManager.Instance.VibratePhone(25);
                 OnPlayerPickedMentos(3, powerUp.mentosColor);
             }
         }

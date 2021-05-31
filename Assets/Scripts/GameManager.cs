@@ -22,6 +22,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        Vibration.Init();
+    }
+
     public void SaveHighscore(int currentPlayerScore)
     {
         if(!PlayerPrefs.HasKey("highscore"))
@@ -37,5 +42,10 @@ public class GameManager : MonoBehaviour
     public int LoadHighscore()
     {
         return PlayerPrefs.GetInt("highscore");
+    }
+
+    public void VibratePhone(long intensity)
+    {
+        Vibration.Vibrate(intensity);
     }
 }
