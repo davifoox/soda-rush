@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "0053003994",
         "name": "com.DefaultCompany.com.unity.template.mobile2D",
-        "processId": 30981,
+        "processId": 32658,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -11,73 +11,43 @@
         {
             "deviceId": "0053003994",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 5969,
-            "exited": true
-        },
-        {
-            "deviceId": "0053003994",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 8729,
-            "exited": true
-        },
-        {
-            "deviceId": "0053003994",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 28103,
-            "exited": true
-        },
-        {
-            "deviceId": "0053003994",
-            "name": "com.motorola.launcher3",
-            "processId": 17149,
-            "exited": true
-        },
-        {
-            "deviceId": "0053003994",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 29037,
-            "exited": true
-        },
-        {
-            "deviceId": "0053003994",
-            "name": "com.unity3d.mobileremote",
-            "processId": 24922,
-            "exited": false
-        },
-        {
-            "deviceId": "0053003994",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 12253,
-            "exited": false
-        },
-        {
-            "deviceId": "0053003994",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 28857,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "0053003994",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 29748,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "0053003994",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 30445,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "0053003994",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 30771,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "0053003994",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 30981,
+            "exited": true
+        },
+        {
+            "deviceId": "0053003994",
+            "name": "com.unity3d.mobileremote",
+            "processId": 28320,
+            "exited": false
+        },
+        {
+            "deviceId": "0053003994",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 32658,
             "exited": false
         }
     ],
