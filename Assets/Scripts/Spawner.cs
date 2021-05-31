@@ -6,6 +6,7 @@ public class Spawner : MonoBehaviour
 {
     [SerializeField] Obstacle handObstacle;
     [SerializeField] Obstacle airplane;
+    [SerializeField] Obstacle bird;
     [SerializeField] PowerUp mentos;
     [SerializeField] PowerUp threeMentos;
     [SerializeField] Player player;
@@ -16,6 +17,12 @@ public class Spawner : MonoBehaviour
     private void Start()
     {
         spawnPostion = transform.position.y + 5f;
+    }
+
+    int GetRandomIntBetween(int first, int last)
+    {
+        int number = Random.Range(first, last +1);
+        return number;
     }
 
     private void FixedUpdate()
@@ -43,18 +50,19 @@ public class Spawner : MonoBehaviour
     {
         //randomize position
         float randomPos;
-        int randomNumber = Random.Range(1, 4);
+        int randomNumber = GetRandomIntBetween(1, 3);
         if (randomNumber == 1)
             randomPos = -1.5f;
         else if (randomNumber == 2)
             randomPos = 1.5f;
-        else
+        else //if (randomNumber == 3)
             randomPos = 0f;
 
+
         //randomize type
-        int randomMentosType = Random.Range(0, 6);
+        int randomMentosType = GetRandomIntBetween(1, 6);
         PowerUp currentMentos;
-        if(randomMentosType < 4)
+        if(randomMentosType < 5)
             currentMentos = Instantiate(mentos, new Vector3(randomPos, transform.position.y, 0), Quaternion.identity);
         else
             currentMentos = Instantiate(threeMentos, new Vector3(randomPos, transform.position.y, 0), Quaternion.identity);
@@ -65,9 +73,9 @@ public class Spawner : MonoBehaviour
 
     void SpawnObstacle()
     {
-        int randomObstacleType = Random.Range(0,10);
+        int randomObstacleType = GetRandomIntBetween(1, 10);
         Obstacle newObstacle;
-        if(randomObstacleType < 7) //hand
+        if(randomObstacleType < 6) //hand
         {
             float xPos = Random.Range(-3, 3);
 
@@ -83,6 +91,17 @@ public class Spawner : MonoBehaviour
                 newObstacle.transform.localScale = new Vector2(newObstacle.transform.localScale.x * -1, newObstacle.transform.localScale.y);
             }
         }
+
+        else if (randomObstacleType < 8) //bird
+        {
+            float xPos = Random.Range(-6f, 4f);
+            if (xPos < 0)
+                xPos = -4.5f;
+            else
+                xPos = 4.5f;
+            newObstacle = Instantiate(bird, new Vector3(xPos, transform.position.y, 0), Quaternion.identity);
+        }
+
         else //airplane
         {
             float xPos = Random.Range(-4.5f, 4.5f);
