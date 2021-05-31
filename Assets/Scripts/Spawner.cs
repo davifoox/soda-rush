@@ -108,7 +108,7 @@ public class Spawner : MonoBehaviour
             if (xPos < 0)
                 xPos = -4.5f;
             else
-                xPos = 4.5f;
+                xPos = 6f;
             newObstacle = Instantiate(airplane, new Vector3(xPos, transform.position.y, 0), Quaternion.identity);
         }
 
