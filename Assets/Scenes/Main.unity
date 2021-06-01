@@ -2815,12 +2815,12 @@ PrefabInstance:
     - target: {fileID: 8424114897179362482, guid: 583f1b870090dfd4da5f97dbf4e0c7fc,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.010122634
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8424114897179362482, guid: 583f1b870090dfd4da5f97dbf4e0c7fc,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.39010096
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8424114897179362482, guid: 583f1b870090dfd4da5f97dbf4e0c7fc,
         type: 3}
@@ -2866,6 +2866,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MentosRed
+      objectReference: {fileID: 0}
+    - target: {fileID: 8424114897179362483, guid: 583f1b870090dfd4da5f97dbf4e0c7fc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 583f1b870090dfd4da5f97dbf4e0c7fc, type: 3}
@@ -2994,7 +2999,7 @@ PrefabInstance:
     - target: {fileID: 8424114897179362482, guid: 0f225e91a3dc4d7409797850a5be8490,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.048000008
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8424114897179362482, guid: 0f225e91a3dc4d7409797850a5be8490,
         type: 3}
