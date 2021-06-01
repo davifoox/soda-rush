@@ -23,6 +23,9 @@ public class Player : MonoBehaviour
     public delegate void PlayerBoosted();
     public event PlayerBoosted OnPlayerBoosted;
 
+    public delegate void PlayerGotInvicible();
+    public event PlayerGotInvicible OnPlayerGotInvincible;
+
     public delegate void PlayerPickedMentos(int quantity, string mentosColor);
     public event PlayerPickedMentos OnPlayerPickedMentos;
     // ------
@@ -96,6 +99,11 @@ public class Player : MonoBehaviour
             speed = maxSpeed;
     }
 
+    void Invincible()
+    {
+        OnPlayerGotInvincible();
+    }
+
     void SpawnBoostParticles()
     {
         BoostParticles currentParticles;
@@ -126,7 +134,10 @@ public class Player : MonoBehaviour
                 if (powerUp.mentosColor == "blue")
                     Boost();
                 else
-                    OnPlayerPickedMentos(1, powerUp.mentosColor);
+                {
+                    //OnPlayerPickedMentos(1, powerUp.mentosColor);
+                    Invincible();
+                }
             }
             else if (collision.gameObject.tag == "3Mentos")
             {
