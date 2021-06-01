@@ -21,11 +21,11 @@ public class Player : MonoBehaviour
     private float gravity = 10f;
 
     public bool isInvincible = false;
-    private float invicibilityTimer = 3f;
+    private float invicibilityTimer = 6f;
     private float currentinvicibilityTimer = 0f;
 
     // EVENTS
-    public delegate void PlayerBoosted();
+    public delegate void PlayerBoosted(float shakeTime);
     public event PlayerBoosted OnPlayerBoosted;
 
     public delegate void PlayerGotInvicible(bool value);
@@ -98,10 +98,10 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void Boost()
+    public void Boost(float shakeTime)
     {
         GameManager.Instance.VibratePhone(50);
-        OnPlayerBoosted();
+        OnPlayerBoosted(shakeTime);
         SpawnBoostParticles();
         FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
         boostSound.Play();
@@ -113,7 +113,7 @@ public class Player : MonoBehaviour
 
     void Invincible()
     {
-        Boost();
+        Boost(invicibilityTimer);
         spriteRenderer.color = Color.red;
         currentinvicibilityTimer = invicibilityTimer;
         OnPlayerGotInvincible(false);
@@ -156,7 +156,7 @@ public class Player : MonoBehaviour
             if (collision.gameObject.tag == "Mentos")
             {
                 if (powerUp.mentosColor == "blue")
-                    Boost();
+                    Boost(2.5f);
                 else if (powerUp.mentosColor == "red")
                     Invincible();
             }

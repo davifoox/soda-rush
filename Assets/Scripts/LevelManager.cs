@@ -22,7 +22,7 @@ public class LevelManager : MonoBehaviour
         usePowerUpButton.GetComponent<Button>().onClick.AddListener(() => 
         {
             if(usePowerUpButton.currentMentosColor == "blue")
-                player.Boost();
+                player.Boost(2.5f);
         });
     }
 
