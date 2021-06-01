@@ -61,12 +61,15 @@ public class Spawner : MonoBehaviour
 
 
         //randomize type
-        int randomMentosType = GetRandomIntBetween(1, 6);
+        int randomMentosType = GetRandomIntBetween(1, 10);
         PowerUp currentMentos;
-        if(randomMentosType < 5)
+        if(randomMentosType < 5) //1 blue mentos
             currentMentos = Instantiate(mentos, new Vector3(randomPos, transform.position.y, 0), Quaternion.identity);
-        else
+        else if (randomMentosType < 8) //1 red mentos
+            currentMentos = Instantiate(redMentos, new Vector3(randomPos, transform.position.y, 0), Quaternion.identity);
+        else //3 blue mentos
             currentMentos = Instantiate(threeMentos, new Vector3(randomPos, transform.position.y, 0), Quaternion.identity);
+
 
         // set power up's player variable
         currentMentos.player = this.player;
@@ -109,7 +112,7 @@ public class Spawner : MonoBehaviour
             if (xPos < 0)
                 xPos = -4.5f;
             else
-                xPos = 6f;
+                xPos = 7f;
             newObstacle = Instantiate(airplane, new Vector3(xPos, transform.position.y, 0), Quaternion.identity);
         }
 
