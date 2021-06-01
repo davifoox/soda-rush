@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
     private float slowDownValue = 0.2f;
     private float gravity = 10f;
 
+    public bool isInvincible = false;
+
     // EVENTS
     public delegate void PlayerBoosted();
     public event PlayerBoosted OnPlayerBoosted;
@@ -101,7 +103,8 @@ public class Player : MonoBehaviour
 
     void Invincible()
     {
-        OnPlayerGotInvincible(true);
+        OnPlayerGotInvincible(false);
+        isInvincible = true;
     }
 
     void SpawnBoostParticles()
@@ -133,11 +136,8 @@ public class Player : MonoBehaviour
             {
                 if (powerUp.mentosColor == "blue")
                     Boost();
-                else
-                {
-                    //OnPlayerPickedMentos(1, powerUp.mentosColor);
+                else if (powerUp.mentosColor == "red")
                     Invincible();
-                }
             }
             else if (collision.gameObject.tag == "3Mentos")
             {

@@ -8,19 +8,13 @@ public class Obstacle : MonoBehaviour
     private float offset = 5f;
     private BoxCollider2D boxCollider2D;
 
-    private void Start()
+    public void Initialize(Player currentPlayer)
     {
+        player = currentPlayer;
         boxCollider2D = GetComponent<BoxCollider2D>();
-    }
-
-    private void OnEnable()
-    {
-        player.OnPlayerGotInvincible += ChangeCollisionToTrigger;
-    }
-
-    private void OnDisable()
-    {
-        
+        currentPlayer.OnPlayerGotInvincible += ChangeCollisionToTrigger;
+        if (player.isInvincible)
+            ChangeCollisionToTrigger(false);
     }
 
     private void FixedUpdate()
@@ -29,7 +23,7 @@ public class Obstacle : MonoBehaviour
             Destroy(this.gameObject);
     }
 
-    void ChangeCollisionToTrigger(bool value)
+    public void ChangeCollisionToTrigger(bool value)
     {
         boxCollider2D.isTrigger = value;
     }

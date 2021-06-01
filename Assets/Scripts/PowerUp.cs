@@ -5,11 +5,11 @@ using UnityEngine;
 public class PowerUp : MonoBehaviour
 {
     public string mentosColor;
-    public Transform player;
+    public Player player;
 
     private void FixedUpdate()
     {
-        if(player.position.y > this.transform.position.y + 5f)
+        if(player.transform.position.y > this.transform.position.y + 5f)
             Destroy(this.gameObject);
     }
 

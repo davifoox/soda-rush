@@ -8,6 +8,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] Obstacle airplane;
     [SerializeField] Obstacle bird;
     [SerializeField] PowerUp mentos;
+    [SerializeField] PowerUp redMentos;
     [SerializeField] PowerUp threeMentos;
     [SerializeField] Player player;
     private float offset = 15f;
@@ -68,7 +69,7 @@ public class Spawner : MonoBehaviour
             currentMentos = Instantiate(threeMentos, new Vector3(randomPos, transform.position.y, 0), Quaternion.identity);
 
         // set power up's player variable
-        currentMentos.player = this.player.transform;
+        currentMentos.player = this.player;
     }
 
     void SpawnObstacle()
@@ -112,6 +113,6 @@ public class Spawner : MonoBehaviour
             newObstacle = Instantiate(airplane, new Vector3(xPos, transform.position.y, 0), Quaternion.identity);
         }
 
-        newObstacle.player = this.player;
+        newObstacle.Initialize(player);
     }
 }
