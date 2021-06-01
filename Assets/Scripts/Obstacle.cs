@@ -17,6 +17,11 @@ public class Obstacle : MonoBehaviour
             ChangeCollisionToTrigger(false);
     }
 
+    private void OnDestroy()
+    {
+        player.OnPlayerGotInvincible -= ChangeCollisionToTrigger;
+    }
+
     private void FixedUpdate()
     {
         if (player.transform.position.y > this.transform.position.y + offset)

@@ -112,6 +112,7 @@ public class Player : MonoBehaviour
 
     void Invincible()
     {
+        Boost();
         currentinvicibilityTimer = invicibilityTimer;
         OnPlayerGotInvincible(false);
         isInvincible = true;
