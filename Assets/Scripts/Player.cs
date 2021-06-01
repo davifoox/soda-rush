@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
     private float gravity = 10f;
 
     public bool isInvincible = false;
+    private float invicibilityTimer = 3f;
+    private float currentinvicibilityTimer = 0f;
 
     // EVENTS
     public delegate void PlayerBoosted();
@@ -51,6 +53,13 @@ public class Player : MonoBehaviour
         Move();
         SlowDown();
         MirrorPosition();
+
+        if (currentinvicibilityTimer > 0)
+            currentinvicibilityTimer -= Time.deltaTime;
+        else if (isInvincible == true)
+        {
+            BackToNormal();
+        }
     }
 
     public void RotatePlayer()
@@ -103,8 +112,16 @@ public class Player : MonoBehaviour
 
     void Invincible()
     {
+        currentinvicibilityTimer = invicibilityTimer;
         OnPlayerGotInvincible(false);
         isInvincible = true;
+    }
+
+    void BackToNormal()
+    {
+        currentinvicibilityTimer = 0;
+        OnPlayerGotInvincible(true);
+        isInvincible = false;
     }
 
     void SpawnBoostParticles()
