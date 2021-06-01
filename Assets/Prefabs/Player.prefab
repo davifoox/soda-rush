@@ -55,7 +55,9 @@ MonoBehaviour:
     type: 3}
   trailParticles: {fileID: 4267562780005639827, guid: 839459bfcbbb00747a9e1a0e941fdefc,
     type: 3}
+  spriteRenderer: {fileID: 6335305991948708761}
   particlesSpawnPoint: {fileID: 479794939555337774}
+  isInvincible: 0
 --- !u!212 &6335305991948708761
 SpriteRenderer:
   m_ObjectHideFlags: 0

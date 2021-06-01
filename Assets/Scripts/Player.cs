@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField] AudioSource boostSound;
     [SerializeField] BoostParticles boostParticles;
     [SerializeField] TrailParticles trailParticles;
+    [SerializeField] SpriteRenderer spriteRenderer;
     public Transform particlesSpawnPoint;
 
     private Vector3 accelerometerVector = new Vector3();
@@ -113,6 +114,7 @@ public class Player : MonoBehaviour
     void Invincible()
     {
         Boost();
+        spriteRenderer.color = Color.red;
         currentinvicibilityTimer = invicibilityTimer;
         OnPlayerGotInvincible(false);
         isInvincible = true;
@@ -120,6 +122,7 @@ public class Player : MonoBehaviour
 
     void BackToNormal()
     {
+        spriteRenderer.color = Color.white;
         currentinvicibilityTimer = 0;
         OnPlayerGotInvincible(true);
         isInvincible = false;
