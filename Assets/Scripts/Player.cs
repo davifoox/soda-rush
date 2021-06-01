@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     public delegate void PlayerBoosted();
     public event PlayerBoosted OnPlayerBoosted;
 
-    public delegate void PlayerGotInvicible();
+    public delegate void PlayerGotInvicible(bool value);
     public event PlayerGotInvicible OnPlayerGotInvincible;
 
     public delegate void PlayerPickedMentos(int quantity, string mentosColor);
@@ -101,7 +101,7 @@ public class Player : MonoBehaviour
 
     void Invincible()
     {
-        OnPlayerGotInvincible();
+        OnPlayerGotInvincible(true);
     }
 
     void SpawnBoostParticles()

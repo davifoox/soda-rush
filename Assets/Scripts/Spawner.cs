@@ -112,6 +112,6 @@ public class Spawner : MonoBehaviour
             newObstacle = Instantiate(airplane, new Vector3(xPos, transform.position.y, 0), Quaternion.identity);
         }
 
-        newObstacle.player = this.player.transform;
+        newObstacle.player = this.player;
     }
 }
