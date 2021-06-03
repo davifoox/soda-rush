@@ -339,8 +339,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -270, y: -12.806885}
-  m_SizeDelta: {x: 540, y: -764.7102}
+  m_AnchoredPosition: {x: -540, y: -12.806885}
+  m_SizeDelta: {x: 1080, y: -764.7102}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &143232624
 MonoBehaviour:
@@ -368,13 +368,36 @@ MonoBehaviour:
     m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 52
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 2
-  m_Text: " - DAVI FOX\n\n\n - FILIPE HIGINO\n\n\n - LAURA VIVIAN\n\n - MATHEUS CAMPELO\n"
+    m_LineSpacing: 1.39
+  m_Text: 'DAVI FOX
+
+    game designer
+
+    programmer
+
+
+    FILIPE HIGINO
+
+    researcher
+
+    artist
+    assistant
+
+
+    LAURA VIVIAN
+
+    lead artist
+
+
+    MATHEUS CAMPELO
+
+    product
+    manager'
 --- !u!222 &143232625
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -483,7 +506,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &322349831
 RectTransform:
   m_ObjectHideFlags: 0
