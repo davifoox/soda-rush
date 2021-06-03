@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using DG.Tweening;
+
 
 public class LevelManager : MonoBehaviour
 {
@@ -80,8 +82,10 @@ public class LevelManager : MonoBehaviour
     {
         //if (!usePowerUpButton.gameObject.activeSelf)
         //{
-            usePowerUpButton.gameObject.SetActive(true);
-            usePowerUpButton.gameObject.GetComponent<UsePowerUpButton>().SetMentosProperties(quantity, mentosColor);
+        usePowerUpButton.transform.localScale = new Vector3(0, 0, 0);
+        usePowerUpButton.transform.DOScale(new Vector3(1, 1, 1), 0.25f);
+        usePowerUpButton.gameObject.SetActive(true);
+        usePowerUpButton.gameObject.GetComponent<UsePowerUpButton>().SetMentosProperties(quantity, mentosColor);
         //}
     }
 
