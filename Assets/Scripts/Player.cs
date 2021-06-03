@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
 {
     [SerializeField] AudioSource hitSound;
     [SerializeField] AudioSource boostSound;
+    [SerializeField] AudioSource redMentosSound;
+    [SerializeField] AudioSource redMentosContinuousSound;
     [SerializeField] BoostParticles boostParticles;
     [SerializeField] TrailParticles trailParticles;
     [SerializeField] SpriteRenderer spriteRenderer;
@@ -113,6 +115,8 @@ public class Player : MonoBehaviour
 
     void Invincible()
     {
+        redMentosContinuousSound.Play();
+        redMentosSound.Play();
         Boost(invicibilityTimer);
         GetComponent<Animation>().Play();
         spriteRenderer.color = Color.red;
@@ -123,6 +127,7 @@ public class Player : MonoBehaviour
 
     void BackToNormal()
     {
+        redMentosContinuousSound.Stop();
         GetComponent<Animation>().Stop();
         spriteRenderer.color = Color.white;
         currentinvicibilityTimer = 0;
