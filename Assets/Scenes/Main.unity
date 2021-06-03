@@ -320,7 +320,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7499372183075842003}
   m_PrefabAsset: {fileID: 0}
---- !u!82 &356495574
+--- !u!82 &356495583
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2128,7 +2128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a7dd11b210b6ef4c909c7a62f41913c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handObstacle: {fileID: -357981542705400132, guid: 0476cafb94e130e4b81da955fa22285f,
+  handObstacle: {fileID: 6364396009441945675, guid: 0476cafb94e130e4b81da955fa22285f,
     type: 3}
   airplane: {fileID: 8629418931976978752, guid: 30d09c61e8cc9554d8588028a20fd888,
     type: 3}
