@@ -57,8 +57,15 @@ public class Player : MonoBehaviour
         SlowDown();
         MirrorPosition();
 
-        if (currentinvicibilityTimer > 0)
+        if (currentinvicibilityTimer > 1)
             currentinvicibilityTimer -= Time.deltaTime;
+        else if (currentinvicibilityTimer > 0)
+        {
+            redMentosContinuousSound.Stop();
+            GetComponent<Animation>().Stop();
+            spriteRenderer.color = Color.white;
+            currentinvicibilityTimer -= Time.deltaTime;
+        }
         else if (isInvincible == true)
         {
             BackToNormal();
@@ -127,9 +134,6 @@ public class Player : MonoBehaviour
 
     void BackToNormal()
     {
-        redMentosContinuousSound.Stop();
-        GetComponent<Animation>().Stop();
-        spriteRenderer.color = Color.white;
         currentinvicibilityTimer = 0;
         OnPlayerGotInvincible(true);
         isInvincible = false;
