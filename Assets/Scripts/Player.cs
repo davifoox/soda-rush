@@ -41,6 +41,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        speed = maxSpeed;
         trailParticles = Instantiate(trailParticles, particlesSpawnPoint.transform.position, Quaternion.identity);
         trailParticles.player = this;
     }
@@ -186,7 +187,12 @@ public class Player : MonoBehaviour
             else if (collision.gameObject.tag == "Bird")
                 HitEnemy();
             else if (collision.gameObject.tag == "Hand")
-                HitEnemy(); //fazer a lata ser pega pela mão (comportamento específico da mão)
+            {
+                HitEnemy(); 
+                //fazer a lata ser pega pela mão (comportamento específico da mão):
+                GetComponent<SpriteRenderer>().enabled = false;
+                trailParticles.enabled = false;
+            }
 
         }
     }
