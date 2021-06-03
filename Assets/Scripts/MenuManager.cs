@@ -10,7 +10,10 @@ public class MenuManager : MonoBehaviour
     [SerializeField] Button startButton;
     [SerializeField] Button configButton;
     [SerializeField] Button storeButton;
+    [SerializeField] Button backFromCreditsButton;
     [SerializeField] Button creditsButton;
+    [SerializeField] Canvas initialCanvas;
+    [SerializeField] Canvas creditsCanvas;
 
     private void Start()
     {
@@ -18,6 +21,7 @@ public class MenuManager : MonoBehaviour
         configButton.onClick.AddListener(() => { ConfigMenu(); });
         storeButton.onClick.AddListener(() => { StoreMenu(); });
         creditsButton.onClick.AddListener(() => { CreditsMenu(); });
+        backFromCreditsButton.onClick.AddListener(() => { BackToInitialMenu(); });
 
         if (PlayerPrefs.HasKey("highscore"))
         {
@@ -43,6 +47,13 @@ public class MenuManager : MonoBehaviour
 
     void CreditsMenu()
     {
-        Debug.Log("Credits Menu...");
+        initialCanvas.gameObject.SetActive(false);
+        creditsCanvas.gameObject.SetActive(true);
+    }
+
+    void BackToInitialMenu() 
+    {
+        initialCanvas.gameObject.SetActive(true);
+        creditsCanvas.gameObject.SetActive(false);
     }
 }
