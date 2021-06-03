@@ -78,11 +78,11 @@ public class LevelManager : MonoBehaviour
 
     void PlayerPickMentos(int quantity, string mentosColor)
     {
-        if (!usePowerUpButton.gameObject.activeSelf)
-        {
+        //if (!usePowerUpButton.gameObject.activeSelf)
+        //{
             usePowerUpButton.gameObject.SetActive(true);
             usePowerUpButton.gameObject.GetComponent<UsePowerUpButton>().SetMentosProperties(quantity, mentosColor);
-        }
+        //}
     }
 
 
