@@ -17,7 +17,7 @@ public class Spawner : MonoBehaviour
 
     private void Start()
     {
-        spawnPostion = transform.position.y + 5f;
+        spawnPostion = transform.position.y + 40f;
     }
 
     int GetRandomIntBetween(int first, int last)
