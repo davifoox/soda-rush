@@ -19,6 +19,7 @@ public class UsePowerUpButton : MonoBehaviour
 
     public void SetMentosProperties(int quantity, string mentosColor)
     {
+        GetComponent<AudioSource>().Play();
         currentMentosColor = mentosColor;
         currentSprite = quantity -1;
         image.sprite = sprites[currentSprite];
