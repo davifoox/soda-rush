@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        // Disable screen dimming
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
         Vibration.Init();
     }
 
