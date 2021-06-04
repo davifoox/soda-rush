@@ -9,6 +9,9 @@ TagManager:
   - Hand
   - Airplane
   - Bird
+  - SpaceShip
+  - Meteor
+  - Satellite
   layers:
   - Default
   - TransparentFX
