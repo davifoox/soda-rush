@@ -23,6 +23,7 @@ public class Spawner : MonoBehaviour
     int GetRandomIntBetween(int first, int last)
     {
         int number = Random.Range(first, last +1);
+        //Debug.Log("random number: " + number);
         return number;
     }
 
@@ -38,14 +39,11 @@ public class Spawner : MonoBehaviour
 
     void Spawn()
     {
-        float randomNumber = Random.Range(0, 6);
-
-        if (randomNumber < 1)   SpawnPowerUp();
-        else                    SpawnObstacle();
+        int randomNumber = GetRandomIntBetween(1, 3);
+        if (randomNumber != 1) 
+            SpawnObstacle();
     }
 
-    //Quando instanciar (tanto power up quanto obstacle) setar a variável player (da instância) como this.player 
-    //(para cada objeto spawnado checar a posição do player e saber se deve ser destruído)
 
     void SpawnPowerUp()
     {
