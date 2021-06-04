@@ -12,8 +12,9 @@ public class Spawner : MonoBehaviour
     [SerializeField] PowerUp threeMentos;
     [SerializeField] Player player;
     private float offset = 15f;
-
     private float spawnPostion;
+
+    private int timeSinceSpawnedPowerUp = 0;
 
     private void Start()
     {
@@ -39,9 +40,25 @@ public class Spawner : MonoBehaviour
 
     void Spawn()
     {
+        timeSinceSpawnedPowerUp++;
         int randomNumber = GetRandomIntBetween(1, 3);
-        if (randomNumber != 1) 
+
+        if(timeSinceSpawnedPowerUp >= 6)
+        {
+            SpawnPowerUp();
+            timeSinceSpawnedPowerUp = 0;
+        }
+        else if (randomNumber != 1)
+        {
             SpawnObstacle();
+        }
+        else if (timeSinceSpawnedPowerUp >= 4)
+        {
+            SpawnPowerUp();
+            timeSinceSpawnedPowerUp = 0;
+        }
+
+        // de 4 a 6 vezes spawnando obstacles, spawnar um mentos
     }
 
 
