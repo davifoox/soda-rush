@@ -15,6 +15,7 @@ public class Spawner : MonoBehaviour
     private float spawnPostion;
 
     private int timeSinceSpawnedPowerUp = 0;
+    private int timesNeededToSpawnPowerUp = 4;
 
     private void Start()
     {
@@ -43,7 +44,7 @@ public class Spawner : MonoBehaviour
         timeSinceSpawnedPowerUp++;
         int randomNumber = GetRandomIntBetween(1, 3);
 
-        if(timeSinceSpawnedPowerUp >= 6)
+        if(timeSinceSpawnedPowerUp >= 10)
         {
             SpawnPowerUp();
             timeSinceSpawnedPowerUp = 0;
@@ -52,7 +53,7 @@ public class Spawner : MonoBehaviour
         {
             SpawnObstacle();
         }
-        else if (timeSinceSpawnedPowerUp >= 4)
+        else if (timeSinceSpawnedPowerUp >= timesNeededToSpawnPowerUp)
         {
             SpawnPowerUp();
             timeSinceSpawnedPowerUp = 0;
@@ -78,12 +79,24 @@ public class Spawner : MonoBehaviour
         //randomize type
         int randomMentosType = GetRandomIntBetween(1, 10);
         PowerUp currentMentos;
-        if(randomMentosType < 5) //1 blue mentos
+        if(randomMentosType < 5)
+        {
+            // 1 BLUE MENTOS
             currentMentos = Instantiate(mentos, new Vector3(randomPos, transform.position.y, 0), Quaternion.identity);
-        else if (randomMentosType < 8) //1 red mentos
+            timesNeededToSpawnPowerUp = 4;
+        }
+        else if (randomMentosType < 8)
+        {
+            // 1 RED MENTOS
             currentMentos = Instantiate(redMentos, new Vector3(randomPos, transform.position.y, 0), Quaternion.identity);
-        else //3 blue mentos
+            timesNeededToSpawnPowerUp = 4;
+        }
+        else
+        {
+            // 3 BLUE MENTOS
             currentMentos = Instantiate(threeMentos, new Vector3(randomPos, transform.position.y, 0), Quaternion.identity);
+            timesNeededToSpawnPowerUp = 6;
+        }
 
 
         // set power up's player variable
