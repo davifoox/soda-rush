@@ -8,8 +8,9 @@ using DG.Tweening;
 
 public class LevelManager : MonoBehaviour
 {
+    public Player player;
+
     [SerializeField] CameraFollow cameraFollow;
-    [SerializeField] Player player;
     [SerializeField] Text scoreText;
     [SerializeField] Button pauseButton;
     [SerializeField] Canvas uiCanvas;

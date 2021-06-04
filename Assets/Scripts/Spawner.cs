@@ -143,7 +143,5 @@ public class Spawner : MonoBehaviour
                 xPos = 7f;
             newObstacle = Instantiate(airplane, new Vector3(xPos, transform.position.y, 0), Quaternion.identity);
         }
-
-        newObstacle.Initialize(player);
     }
 }

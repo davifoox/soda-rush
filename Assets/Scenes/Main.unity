@@ -2662,8 +2662,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 178d6c4f7ee27ce46b0702d102e1590f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraFollow: {fileID: 519420030}
   player: {fileID: 163915015}
+  cameraFollow: {fileID: 519420030}
   scoreText: {fileID: 1352089790}
   pauseButton: {fileID: 2039735340}
   uiCanvas: {fileID: 1363865873}

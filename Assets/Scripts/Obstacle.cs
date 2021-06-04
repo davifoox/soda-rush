@@ -4,18 +4,22 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-    public Player player;
+    private Player player;
     private float offset = 5f;
     private BoxCollider2D boxCollider2D;
+    private CircleCollider2D circleCollider2D;
 
-    public void Initialize(Player currentPlayer)
+    private void Awake()
     {
-        player = currentPlayer;
+        player = FindObjectOfType<LevelManager>().player;
         boxCollider2D = GetComponent<BoxCollider2D>();
-        currentPlayer.OnPlayerGotInvincible += ChangeCollisionToTrigger;
+        circleCollider2D = GetComponent<CircleCollider2D>();
+
+        player.OnPlayerGotInvincible += ChangeCollisionToTrigger;
         if (player.isInvincible)
             ChangeCollisionToTrigger(false);
     }
+
 
     private void OnDestroy()
     {
@@ -30,6 +34,9 @@ public class Obstacle : MonoBehaviour
 
     public void ChangeCollisionToTrigger(bool value)
     {
-        boxCollider2D.isTrigger = value;
+        if(boxCollider2D != null)
+            boxCollider2D.isTrigger = value;
+        else if (circleCollider2D != null)
+            circleCollider2D.isTrigger = value;
     }
 }

@@ -190,11 +190,17 @@ public class Player : MonoBehaviour
                 HitEnemy();
             else if (collision.gameObject.tag == "Hand")
             {
-                HitEnemy(); 
+                HitEnemy();
                 //fazer a lata ser pega pela mão (comportamento específico da mão):
                 GetComponent<SpriteRenderer>().enabled = false;
                 trailParticles.enabled = false;
             }
+            else if (collision.gameObject.tag == "SpaceShip")
+                HitEnemy();
+            else if (collision.gameObject.tag == "Meteor")
+                HitEnemy();
+            else if (collision.gameObject.tag == "Satellite")
+                HitEnemy();
 
         }
     }
