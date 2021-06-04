@@ -129,14 +129,16 @@ public class Player : MonoBehaviour
         GetComponent<Animation>().Play();
         spriteRenderer.color = Color.red;
         currentinvicibilityTimer = invicibilityTimer;
-        OnPlayerGotInvincible(false);
+        if(OnPlayerGotInvincible != null)
+            OnPlayerGotInvincible(false);
         isInvincible = true;
     }
 
     void BackToNormal()
     {
         currentinvicibilityTimer = 0;
-        OnPlayerGotInvincible(true);
+        if (OnPlayerGotInvincible != null)
+            OnPlayerGotInvincible(true);
         isInvincible = false;
     }
 
