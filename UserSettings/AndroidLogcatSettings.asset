@@ -1,9 +1,9 @@
 {
     "m_SelectedDeviceId": "0053003994",
     "m_SelectedPackage": {
-        "deviceId": "0053003994",
-        "name": "com.DefaultCompany.com.unity.template.mobile2D",
-        "processId": 24106,
+        "deviceId": "",
+        "name": "",
+        "processId": 0,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -11,73 +11,37 @@
         {
             "deviceId": "0053003994",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 28857,
-            "exited": true
-        },
-        {
-            "deviceId": "0053003994",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 29748,
-            "exited": true
-        },
-        {
-            "deviceId": "0053003994",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 30445,
-            "exited": true
-        },
-        {
-            "deviceId": "0053003994",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 30771,
-            "exited": true
-        },
-        {
-            "deviceId": "0053003994",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 30981,
-            "exited": true
-        },
-        {
-            "deviceId": "0053003994",
-            "name": "com.unity3d.mobileremote",
-            "processId": 28320,
-            "exited": false
-        },
-        {
-            "deviceId": "0053003994",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 32658,
-            "exited": false
-        },
-        {
-            "deviceId": "0053003994",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 5969,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "0053003994",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 2090,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "0053003994",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 20717,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "0053003994",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 21327,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "0053003994",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 24106,
+            "exited": true
+        },
+        {
+            "deviceId": "0053003994",
+            "name": "com.unity3d.mobileremote",
+            "processId": 28567,
             "exited": false
         }
     ],
