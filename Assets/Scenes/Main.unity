@@ -2680,6 +2680,7 @@ MonoBehaviour:
   threeMentos: {fileID: 4567307204264472025, guid: 0e106230b49cd384cac9d8567156d5fd,
     type: 3}
   player: {fileID: 163915015}
+  cameraHolderAnimator: {fileID: 291467980}
 --- !u!4 &1521508022
 Transform:
   m_ObjectHideFlags: 0

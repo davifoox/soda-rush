@@ -13,9 +13,13 @@ public class Spawner : MonoBehaviour
     [SerializeField] Player player;
     private float offset = 15f;
     private float spawnPostion;
+    private bool inSpace = false;
+    private int spaceAltitude = 20;
 
     private int timeSinceSpawnedPowerUp = 0;
     private int timesNeededToSpawnPowerUp = 4;
+
+    [SerializeField] Animator cameraHolderAnimator;
 
     private void Start()
     {
@@ -36,6 +40,12 @@ public class Spawner : MonoBehaviour
         {
             Spawn();
             spawnPostion = spawnPostion + 10f;
+        }
+
+        if(player.transform.position.y > spaceAltitude && !inSpace)
+        {
+            inSpace = true;
+            cameraHolderAnimator.SetTrigger("Transition");
         }
     }
 
