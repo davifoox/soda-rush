@@ -81,9 +81,9 @@ public class Spawner : MonoBehaviour
         else if (randomNumber != 1)
         {
             if(!inSpace)
-                SpawnObstacle(handObstacle, bird, airplane);
+                SpawnObstacleEarth(handObstacle, bird, airplane);
             else if(inSpace)
-                SpawnObstacle(meteor, satellite, spaceShip);
+                SpawnObstacleSpace(meteor, satellite, spaceShip);
         }
         else if (timeSinceSpawnedPowerUp >= timesNeededToSpawnPowerUp)
         {
@@ -135,7 +135,7 @@ public class Spawner : MonoBehaviour
         currentMentos.player = this.player;
     }
 
-    void SpawnObstacle(Obstacle obstacleA, Obstacle obstacleB, Obstacle obstacleC)
+    void SpawnObstacleEarth(Obstacle obstacleA, Obstacle obstacleB, Obstacle obstacleC)
     {
         int randomObstacleType = GetRandomIntBetween(1, 10);
         Obstacle newObstacle;
@@ -167,6 +167,49 @@ public class Spawner : MonoBehaviour
         }
 
         else //airplane
+        {
+            float xPos = Random.Range(-4.5f, 4.5f);
+            if (xPos < 0)
+                xPos = -4.5f;
+            else
+                xPos = 7f;
+            newObstacle = Instantiate(obstacleC, new Vector3(xPos, transform.position.y, 0), Quaternion.identity);
+        }
+    }
+
+
+    void SpawnObstacleSpace(Obstacle obstacleA, Obstacle obstacleB, Obstacle obstacleC)
+    {
+        int randomObstacleType = GetRandomIntBetween(1, 10);
+        Obstacle newObstacle;
+        if (randomObstacleType < 6) //meteor
+        {
+            float xPos = Random.Range(-3, 3);
+
+            if (xPos > 0)
+            {
+                xPos = 1.6f;
+                newObstacle = Instantiate(obstacleA, new Vector3(xPos, transform.position.y, 0), Quaternion.identity);
+            }
+            else
+            {
+                xPos = -1.6f;
+                newObstacle = Instantiate(obstacleA, new Vector3(xPos, transform.position.y, 0), Quaternion.identity);
+                newObstacle.transform.localScale = new Vector2(newObstacle.transform.localScale.x * -1, newObstacle.transform.localScale.y);
+            }
+        }
+
+        else if (randomObstacleType < 8) //satellite
+        {
+            float xPos = Random.Range(-6f, 4f);
+            if (xPos < 0)
+                xPos = -4.5f;
+            else
+                xPos = 4.5f;
+            newObstacle = Instantiate(obstacleB, new Vector3(xPos, transform.position.y, 0), Quaternion.identity);
+        }
+
+        else //spaceship
         {
             float xPos = Random.Range(-4.5f, 4.5f);
             if (xPos < 0)
