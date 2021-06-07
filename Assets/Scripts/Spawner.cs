@@ -24,7 +24,7 @@ public class Spawner : MonoBehaviour
     private float offset = 15f;
     private float spawnPostion;
     private bool inSpace = false;
-    private int spaceAltitude = 20;
+    private int spaceAltitude = 400;
 
     private int timeSinceSpawnedPowerUp = 0;
     private int timesNeededToSpawnPowerUp = 4;
@@ -32,6 +32,7 @@ public class Spawner : MonoBehaviour
 
     private void Start()
     {
+        // Initital spawn point
         spawnPostion = transform.position.y + 40f;
     }
 
@@ -47,8 +48,17 @@ public class Spawner : MonoBehaviour
         this.transform.position = new Vector2(this.transform.position.x, player.transform.position.y + offset);
         if(transform.position.y >= spawnPostion)
         {
-            Spawn();
-            spawnPostion = spawnPostion + 10f;
+            if (inSpace == false)
+            {
+                Spawn();
+                spawnPostion = spawnPostion + 10f;
+            }
+            else if(inSpace == true)
+            {
+                Spawn();
+                spawnPostion = spawnPostion + 5f;
+            }
+
         }
 
         if(player.transform.position.y > spaceAltitude && !inSpace)
@@ -70,7 +80,10 @@ public class Spawner : MonoBehaviour
         }
         else if (randomNumber != 1)
         {
-            SpawnObstacle();
+            if(!inSpace)
+                SpawnObstacle(handObstacle, bird, airplane);
+            else if(inSpace)
+                SpawnObstacle(meteor, satellite, spaceShip);
         }
         else if (timeSinceSpawnedPowerUp >= timesNeededToSpawnPowerUp)
         {
@@ -122,7 +135,7 @@ public class Spawner : MonoBehaviour
         currentMentos.player = this.player;
     }
 
-    void SpawnObstacle()
+    void SpawnObstacle(Obstacle obstacleA, Obstacle obstacleB, Obstacle obstacleC)
     {
         int randomObstacleType = GetRandomIntBetween(1, 10);
         Obstacle newObstacle;
@@ -133,12 +146,12 @@ public class Spawner : MonoBehaviour
             if (xPos > 0)
             {
                 xPos = 1.6f;
-                newObstacle = Instantiate(handObstacle, new Vector3(xPos, transform.position.y, 0), Quaternion.identity);
+                newObstacle = Instantiate(obstacleA, new Vector3(xPos, transform.position.y, 0), Quaternion.identity);
             }
             else
             {
                 xPos = -1.6f;
-                newObstacle = Instantiate(handObstacle, new Vector3(xPos, transform.position.y, 0), Quaternion.identity);
+                newObstacle = Instantiate(obstacleA, new Vector3(xPos, transform.position.y, 0), Quaternion.identity);
                 newObstacle.transform.localScale = new Vector2(newObstacle.transform.localScale.x * -1, newObstacle.transform.localScale.y);
             }
         }
@@ -150,7 +163,7 @@ public class Spawner : MonoBehaviour
                 xPos = -4.5f;
             else
                 xPos = 4.5f;
-            newObstacle = Instantiate(bird, new Vector3(xPos, transform.position.y, 0), Quaternion.identity);
+            newObstacle = Instantiate(obstacleB, new Vector3(xPos, transform.position.y, 0), Quaternion.identity);
         }
 
         else //airplane
@@ -160,7 +173,7 @@ public class Spawner : MonoBehaviour
                 xPos = -4.5f;
             else
                 xPos = 7f;
-            newObstacle = Instantiate(airplane, new Vector3(xPos, transform.position.y, 0), Quaternion.identity);
+            newObstacle = Instantiate(obstacleC, new Vector3(xPos, transform.position.y, 0), Quaternion.identity);
         }
     }
 }
