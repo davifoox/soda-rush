@@ -4,13 +4,23 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    [Header("Obsyacles")]
     [SerializeField] Hand handObstacle;
     [SerializeField] Obstacle airplane;
     [SerializeField] Obstacle bird;
+    [SerializeField] Obstacle meteor;
+    [SerializeField] Obstacle satellite;
+    [SerializeField] Obstacle spaceShip;
+
+    [Header("Power Ups")]
     [SerializeField] PowerUp mentos;
     [SerializeField] PowerUp redMentos;
     [SerializeField] PowerUp threeMentos;
     [SerializeField] Player player;
+
+    [Header("Others")]
+    [SerializeField] Animator cameraHolderAnimator;
+
     private float offset = 15f;
     private float spawnPostion;
     private bool inSpace = false;
@@ -19,7 +29,6 @@ public class Spawner : MonoBehaviour
     private int timeSinceSpawnedPowerUp = 0;
     private int timesNeededToSpawnPowerUp = 4;
 
-    [SerializeField] Animator cameraHolderAnimator;
 
     private void Start()
     {
