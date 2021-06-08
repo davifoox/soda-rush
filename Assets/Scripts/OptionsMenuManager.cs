@@ -12,10 +12,11 @@ public class OptionsMenuManager : MonoBehaviour
 
     private void Start()
     {
-        //pauseButton.onClick.AddListener(() => { PauseGame(); });
+        //sliders:
         musicVolume.onValueChanged.AddListener(delegate { SetMusicVolume(musicVolume.value); });
         sfxVolume.onValueChanged.AddListener(delegate { SetSFXVolume(sfxVolume.value); });
 
+        //toggles:
         vibrationToggle.onValueChanged.AddListener(delegate { SetVibration(vibrationToggle.isOn); });
         screenShakeToggle.onValueChanged.AddListener(delegate { SetScreenShake(screenShakeToggle.isOn); });
     }
