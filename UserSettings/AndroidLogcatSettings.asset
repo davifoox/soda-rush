@@ -1,9 +1,9 @@
 {
     "m_SelectedDeviceId": "0053003994",
     "m_SelectedPackage": {
-        "deviceId": "",
-        "name": "",
-        "processId": 0,
+        "deviceId": "0053003994",
+        "name": "com.DefaultCompany.com.unity.template.mobile2D",
+        "processId": 6499,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -42,6 +42,12 @@
             "deviceId": "0053003994",
             "name": "com.unity3d.mobileremote",
             "processId": 22968,
+            "exited": false
+        },
+        {
+            "deviceId": "0053003994",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 6499,
             "exited": false
         }
     ],
