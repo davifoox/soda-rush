@@ -14,6 +14,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] Button creditsButton;
     [SerializeField] Canvas initialCanvas;
     [SerializeField] Canvas creditsCanvas;
+    [SerializeField] Canvas optionsCanvas;
 
     private void Start()
     {
@@ -37,7 +38,8 @@ public class MenuManager : MonoBehaviour
 
     void ConfigMenu()
     {
-        Debug.Log("Config Menu...");
+        initialCanvas.gameObject.SetActive(false);
+        optionsCanvas.gameObject.SetActive(true);
     }
 
     void StoreMenu()
