@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class OptionsMenuManager : MonoBehaviour
 {
@@ -21,23 +22,52 @@ public class OptionsMenuManager : MonoBehaviour
         screenShakeToggle.onValueChanged.AddListener(delegate { SetScreenShake(screenShakeToggle.isOn); });
     }
 
+    private void OnEnable()
+    {
+        musicVolume.value = PlayerPrefs.GetFloat("musicVolume");
+        sfxVolume.value = PlayerPrefs.GetFloat("sfxVolume");
+
+        vibrationToggle.isOn = IntToBool(PlayerPrefs.GetInt("vibrationOn"));
+        screenShakeToggle.isOn = IntToBool(PlayerPrefs.GetInt("screenShakeOn"));
+    }
+
     void SetMusicVolume(float musicVolumeValue)
     {
-        Debug.Log(musicVolumeValue);
+        GameManager.Instance.SetAndSaveMusicVolume(musicVolumeValue);
     }
 
     void SetSFXVolume(float sfxVolumeValue)
     {
-        Debug.Log(sfxVolumeValue);
+        GameManager.Instance.SetAndSaveSFXVolume(sfxVolumeValue);
     }
 
     void SetVibration(bool vibrationToggleValue)
     {
-        Debug.Log("vibration: " + vibrationToggleValue);
+        PlayerPrefs.SetInt("vibrationOn", BoolToInt(vibrationToggleValue));
     }
 
     void SetScreenShake(bool screenShakeToggleValue)
     {
-        Debug.Log("screen shake: " + screenShakeToggleValue);
+        PlayerPrefs.SetInt("screenShakeOn", BoolToInt(screenShakeToggleValue));
+    }
+
+    bool IntToBool(int number)
+    {
+        bool boolValue;
+        if (number == 0)
+            boolValue = false;
+        else
+            boolValue = true;
+        return boolValue;
+    }
+
+    int BoolToInt(bool value)
+    {
+        int number;
+        if (value == false)
+            number = 0;
+        else
+            number = 1;
+        return number;
     }
 }

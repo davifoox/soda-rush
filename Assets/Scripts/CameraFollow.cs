@@ -35,8 +35,10 @@ public class CameraFollow : MonoBehaviour
 
     void ShakeCamera(float shakeTimer)
     {
-        Camera.main.DOComplete();
-        Camera.main.transform.DOShakePosition(shakeTimer, .25f, 50, 90, false);
-        //Debug.Log("Shaking Camera...");
+        if (PlayerPrefs.GetInt("screenShakeOn") == 1)
+        {
+            Camera.main.DOComplete();
+            Camera.main.transform.DOShakePosition(shakeTimer, .25f, 50, 90, false);
+        }
     }
 }

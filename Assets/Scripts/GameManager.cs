@@ -1,9 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class GameManager : MonoBehaviour
 {
+    public AudioMixerGroup musicAudioMixer;
+    public AudioMixerGroup sfxAudioMixer;
+
     private static GameManager _instance;
 
     public static GameManager Instance { get { return _instance; } }
@@ -24,6 +28,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        InitializeOptionsPlayerPrefs();
         // Disable screen dimming
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
         Vibration.Init();
@@ -48,6 +53,36 @@ public class GameManager : MonoBehaviour
 
     public void VibratePhone(long intensity)
     {
-        Vibration.Vibrate(intensity);
+        if(PlayerPrefs.GetInt("vibrationOn") == 1)
+            Vibration.Vibrate(intensity);
+    }
+
+    public void SetAndSaveMusicVolume(float musicVolumeValue)
+    {
+        musicAudioMixer.audioMixer.SetFloat("musicVolume", musicVolumeValue);
+        PlayerPrefs.SetFloat("musicVolume", musicVolumeValue);
+    }
+
+    public void SetAndSaveSFXVolume(float sfxVolumeValue)
+    {
+        sfxAudioMixer.audioMixer.SetFloat("sfxVolume", sfxVolumeValue);
+        PlayerPrefs.SetFloat("sfxVolume", sfxVolumeValue);
+    }
+
+    void InitializeOptionsPlayerPrefs()
+    {
+        if (!PlayerPrefs.HasKey("musicVolume"))
+            PlayerPrefs.SetFloat("musicVolume", 0);
+        else
+            musicAudioMixer.audioMixer.SetFloat("musicVolume", PlayerPrefs.GetFloat("musicVolume"));
+        if (!PlayerPrefs.HasKey("sfxVolume"))
+            PlayerPrefs.SetFloat("sfxVolume", 0);
+        else
+            musicAudioMixer.audioMixer.SetFloat("sfxVolume", PlayerPrefs.GetFloat("sfxVolume"));
+
+        if (!PlayerPrefs.HasKey("vibrationOn"))
+            PlayerPrefs.SetInt("vibrationOn", 1);
+        if (!PlayerPrefs.HasKey("screenShakeOn"))
+            PlayerPrefs.SetInt("screenShakeOn", 1);
     }
 }
