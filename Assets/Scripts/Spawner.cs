@@ -24,7 +24,7 @@ public class Spawner : MonoBehaviour
     private float offset = 15f;
     private float spawnPostion;
     private bool inSpace = false;
-    private int spaceAltitude = 400;
+    private int spaceAltitude = 20;//400;
 
     private int timeSinceSpawnedPowerUp = 0;
     private int timesNeededToSpawnPowerUp = 4;
@@ -56,7 +56,7 @@ public class Spawner : MonoBehaviour
             else if(inSpace == true)
             {
                 Spawn();
-                spawnPostion = spawnPostion + 5f;
+                spawnPostion = spawnPostion + 7.5f;
             }
 
         }
@@ -188,12 +188,12 @@ public class Spawner : MonoBehaviour
 
             if (xPos > 0)
             {
-                xPos = 1.6f;
+                xPos = 4.5f;
                 newObstacle = Instantiate(obstacleA, new Vector3(xPos, transform.position.y, 0), Quaternion.identity);
             }
             else
             {
-                xPos = -1.6f;
+                xPos = -4.5f;
                 newObstacle = Instantiate(obstacleA, new Vector3(xPos, transform.position.y, 0), Quaternion.identity);
                 newObstacle.transform.localScale = new Vector2(newObstacle.transform.localScale.x * -1, newObstacle.transform.localScale.y);
             }
