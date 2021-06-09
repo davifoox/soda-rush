@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public int lastScore;
     public int currentScore;
 
+    public AudioSource openningSound;
     public AudioMixerGroup musicAudioMixer;
     public AudioMixerGroup sfxAudioMixer;
 

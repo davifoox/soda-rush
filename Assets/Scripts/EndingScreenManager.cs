@@ -29,6 +29,7 @@ public class EndingScreenManager : MonoBehaviour
     }
     void RestartGame()
     {
+        GameManager.Instance.openningSound.Play();
         SceneManager.LoadScene(1);
     }
 }
