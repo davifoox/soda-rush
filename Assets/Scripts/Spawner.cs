@@ -24,7 +24,7 @@ public class Spawner : MonoBehaviour
     private float offset = 15f;
     private float spawnPostion;
     private bool inSpace = false;
-    private int spaceAltitude = 20;//400;
+    private int spaceAltitude = 400;
 
     private int timeSinceSpawnedPowerUp = 0;
     private int timesNeededToSpawnPowerUp = 4;
