@@ -21,6 +21,7 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
+        GameManager.Instance.lastScore = PlayerPrefs.GetInt("highscore");
         pauseButton.onClick.AddListener(() => { PauseGame(); });
         usePowerUpButton.GetComponent<Button>().onClick.AddListener(() => 
         {
@@ -32,7 +33,7 @@ public class LevelManager : MonoBehaviour
     private void OnEnable()
     {
         cameraFollow.OnPlayerLefScreen += SaveHighscore;
-        cameraFollow.OnPlayerLefScreen += ReloadCurrentScene;
+        cameraFollow.OnPlayerLefScreen += LoadEndingScreen;
 
         player.OnPlayerPickedMentos += PlayerPickMentos;
     }
@@ -40,7 +41,7 @@ public class LevelManager : MonoBehaviour
     private void OnDisable()
     {
         cameraFollow.OnPlayerLefScreen -= SaveHighscore;
-        cameraFollow.OnPlayerLefScreen -= ReloadCurrentScene;
+        cameraFollow.OnPlayerLefScreen -= LoadEndingScreen;
 
         player.OnPlayerPickedMentos -= PlayerPickMentos;
     }
@@ -51,10 +52,10 @@ public class LevelManager : MonoBehaviour
         GameManager.Instance.SaveHighscore(Mathf.CeilToInt(currentPlayerScore));
     }
 
-    void ReloadCurrentScene()
+    void LoadEndingScreen()
     {
-        //Debug.Log("Reloading current scene");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        GameManager.Instance.currentScore = (int)currentPlayerScore;
+        SceneManager.LoadScene(2);
     }
 
     private void Update()

@@ -5,6 +5,9 @@ using UnityEngine.Audio;
 
 public class GameManager : MonoBehaviour
 {
+    public int lastScore;
+    public int currentScore;
+
     public AudioMixerGroup musicAudioMixer;
     public AudioMixerGroup sfxAudioMixer;
 
@@ -28,6 +31,9 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        //RESET HIGHSCORE:
+        //PlayerPrefs.SetInt("highscore", 0);
+
         InitializeOptionsPlayerPrefs();
         // Disable screen dimming
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
