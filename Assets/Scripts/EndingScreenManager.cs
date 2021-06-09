@@ -11,14 +11,16 @@ public class EndingScreenManager : MonoBehaviour
     [SerializeField] Button backToInitialMenuButton;
     [SerializeField] Button restartButton;
     [SerializeField] Text endingText;
+    [SerializeField] Image trophy;
 
     private void Start()
     {
         string message;
         if(GameManager.Instance.lastScore < GameManager.Instance.currentScore)
         {
+            trophy.gameObject.SetActive(true);
             goodSound.Play();
-            message = "NEW RECORD: \n";
+            message = "NEW RECORD!!!\n";
         }
         else
         {
