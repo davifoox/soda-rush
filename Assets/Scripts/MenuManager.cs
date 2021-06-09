@@ -33,6 +33,7 @@ public class MenuManager : MonoBehaviour
     void StartGame()
     {
         //Debug.Log("Starting Game...");
+        GetComponent<AudioSource>().Stop();
         GameManager.Instance.openningSound.Play();
         SceneManager.LoadScene(1);
     }

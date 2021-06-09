@@ -2239,6 +2239,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05e509c4be313bd4a80065d33003fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastScore: 0
+  currentScore: 0
+  openningSound: {fileID: 0}
   musicAudioMixer: {fileID: 1472149146050325565, guid: b36e047952d9ad34c8a550b3b9cbd588,
     type: 2}
   sfxAudioMixer: {fileID: -3278075837425774302, guid: b36e047952d9ad34c8a550b3b9cbd588,
@@ -3571,7 +3574,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

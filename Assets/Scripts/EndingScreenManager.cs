@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class EndingScreenManager : MonoBehaviour
 {
+    [SerializeField] AudioSource goodSound;
+    [SerializeField] AudioSource badSound;
     [SerializeField] Button backToInitialMenuButton;
     [SerializeField] Button restartButton;
     [SerializeField] Text endingText;
@@ -14,9 +16,15 @@ public class EndingScreenManager : MonoBehaviour
     {
         string message;
         if(GameManager.Instance.lastScore < GameManager.Instance.currentScore)
+        {
+            goodSound.Play();
             message = "NEW RECORD: \n";
+        }
         else
+        {
+            badSound.Play();
             message = "Your score: \n";
+        }
         endingText.text = message + GameManager.Instance.currentScore;
 
         backToInitialMenuButton.onClick.AddListener(() => { BackToInitialMenu(); });
