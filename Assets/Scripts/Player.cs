@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField] BoostParticles boostParticles;
     [SerializeField] TrailParticles trailParticles;
     [SerializeField] SpriteRenderer spriteRenderer;
+    [SerializeField] Animator animator;
     public Transform particlesSpawnPoint;
 
     private Vector3 accelerometerVector = new Vector3();
@@ -110,6 +111,7 @@ public class Player : MonoBehaviour
 
     public void Boost(float shakeTime)
     {
+        animator.SetTrigger("boost");
         GameManager.Instance.VibratePhone(50);
         OnPlayerBoosted(shakeTime);
         SpawnBoostParticles();
