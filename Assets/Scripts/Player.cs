@@ -156,6 +156,7 @@ public class Player : MonoBehaviour
 
     void HitEnemy()
     {
+        animator.SetTrigger("hit");
         GameManager.Instance.VibratePhone(100);
         Vibration.VibratePeek();
         speed = -5f;
